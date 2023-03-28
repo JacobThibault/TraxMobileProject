@@ -1,0 +1,9 @@
+changed everything in src\components\Cart
+
+added	node_modules\bootstrap
+
+edited css in node_modules\bootstrap\dist\css\bootstrap.min.css
+
+
+
+other changes are css that can be identified upon inspection
