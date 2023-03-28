@@ -1,3 +1,5 @@
+either import the bootstrap folder or use the following command
+
 npm install react-bootstrap bootstrap@4.6
 
-bootstrap/dist/css/bootstrap.min.css has been modified to have the correct button color codes
+bootstrap/dist/css/bootstrap.min.css has been modified, import changes from the bootstrap folder
