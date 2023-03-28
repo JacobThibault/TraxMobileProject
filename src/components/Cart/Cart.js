@@ -20,8 +20,9 @@ const Cart = (props) => {
   };
 
   //----------------------------------------------
-  //total amount to send to receipt
+  //cart contents
   let cartCtx = useContext(CartContext);
+  //get total amount from cart
   const totalAmount = `$${cartCtx.totalAmount.toFixed(2)}`;
 
   //orderId to send to receipt
