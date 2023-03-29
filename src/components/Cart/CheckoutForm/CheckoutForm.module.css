@@ -68,7 +68,13 @@
     color:#445e2a;
   }
 
-  .modalSize {
-    width: 35rem;
-    max-width: 35rem;
+  .myModal {
+    width: 50%;
+    max-width: 75%;
+    
   }
+
+  .button {
+    color: green;
+  }
+  

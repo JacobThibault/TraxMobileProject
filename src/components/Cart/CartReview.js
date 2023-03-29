@@ -61,8 +61,9 @@ const CartReview = (props) => {
         onHide={handleClose}
         keyboard={false}
         dialogClassName={forms.modalSize}
+        
       >
-        <Modal.Header>
+        <Modal.Header closeButton>
           <Modal.Title>Cart</Modal.Title>
         </Modal.Header>
         <Modal.Body>
@@ -91,7 +92,7 @@ const CartReview = (props) => {
           </Button>
           {/*show checkout button if there are items in cart */}
           {hasItems && (
-            <Button variant="primary" onClick={handleSubmit}>
+            <Button dialogueClassName={forms.checkout} onClick={handleSubmit}>
               Checkout
             </Button>
           )}

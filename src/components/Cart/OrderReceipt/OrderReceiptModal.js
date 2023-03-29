@@ -15,19 +15,20 @@ const OrderReceiptModule = (props) => {
   const popover = (
     <Popover id="popover-basic">
       <Popover.Header as="h3" className="pb-3">
-        <span>Before you go...</span>
-        <span className="float-right">
           {/*this actually closes the modal */}
           <Button variant="danger" size="sm" onClick={handleClose}>
             Close
           </Button>
-        </span>
+        
       </Popover.Header>
 
       {/*warning message */}
       <Popover.Body>
         Did you save your <strong>Order ID?</strong> It is required upon pickup
       </Popover.Body>
+      <Popover.Footer>
+        
+      </Popover.Footer>
     </Popover>
   );
 
@@ -41,7 +42,7 @@ const OrderReceiptModule = (props) => {
         keyboard={false}
         dialogClassName={receipt.modalSize}
       >
-        <Modal.Header>
+        <Modal.Header closeButton>
           <Modal.Title>Receipt</Modal.Title>
         </Modal.Header>
         <Modal.Body>

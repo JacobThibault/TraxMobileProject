@@ -70,12 +70,12 @@ const CheckoutForm = (props) => {
 
   return (
     <Modal
-      dialogClassName={forms.modalSize}
       show={show}
       onHide={handleClose}
       keyboard={false}
+     // dialogClassName={forms.myModal}
     >
-      <Modal.Header>
+      <Modal.Header closeButton>
         <Modal.Title>Payment</Modal.Title>
       </Modal.Header>
       <Modal.Body>
@@ -85,7 +85,7 @@ const CheckoutForm = (props) => {
             <Row className="mb-3">
               <Form.Group as={Col} controlId="First">
                 <Form.Label>Student Name*</Form.Label>
-                <Form.Control required />
+                <Form.Control required autoFocus/>
                 <Form.Text className="text-muted">First</Form.Text>
               </Form.Group>
 
@@ -128,17 +128,20 @@ const CheckoutForm = (props) => {
             <Form.Group className="mb-3" id="Payment">
               <Form.Label>Payment</Form.Label>
               <Form.Group className="ml-3">
+                {paidWithCard ? (
+                  <Form.Text className="text-muted">
+                    *Pay with card.
+                  </Form.Text>
+                ):( <Form.Text className="text-muted">
+                *Pay with points.
+              </Form.Text>)}
                 <Form.Check
-                  type="checkbox"
-                  label="Card"
+                  type="switch"
+                  
                   default={paidWithCard}
                   onChange={handlePaidWithCardChange}
                 />
-                {!paidWithCard && (
-                  <Form.Text className="text-muted">
-                    *By leaving this box unchecked, I agree to pay with points.
-                  </Form.Text>
-                )}
+                
               </Form.Group>
             </Form.Group>
           </div>

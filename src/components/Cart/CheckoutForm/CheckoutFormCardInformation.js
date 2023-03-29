@@ -10,12 +10,6 @@ const CheckoutFormCardInformation = () => {
     setCardNumberLength(event.target.value.length);
   };
 
-  //card security code
-  const [cardSecurityCodeLength, setCardSecurityCodeLength] = useState(0);
-  const handleCardSecurityCodeChange = (event) => {
-    setCardSecurityCodeLength(event.target.value.length);
-  };
-
   return (
     <div>
       <span className={forms.title}>Card Information</span>
@@ -55,13 +49,9 @@ const CheckoutFormCardInformation = () => {
           <Form.Control
             pattern="[0-9]{3}"
             required
-            onChange={handleCardSecurityCodeChange}
           />
           <Form.Text className="text-muted">
-            Must be <strong>3</strong> digits.{" "}
-            <em>
-              Currently entered: <strong>{cardSecurityCodeLength}</strong>
-            </em>
+            Must be <strong>3</strong> digits.
           </Form.Text>
         </Form.Group>
       </Row>
