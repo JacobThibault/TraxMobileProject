@@ -2,6 +2,7 @@ import CartIcon from "../Cart/CartIcon";
 import classes from "./HeaderCartButton.module.css";
 import { useContext, useEffect, useState } from "react";
 import CartContext from "../../Store/cart-context";
+import Badge from "react-bootstrap/Badge";
 
 const HeaderCartButton = (props) => {
   const [btnIsHighlighted, setBtnIsHighlighted] = useState(false);
@@ -39,8 +40,11 @@ const HeaderCartButton = (props) => {
       <span className={classes.icon}>
         <CartIcon />
       </span>
-      <span>Your Cart</span>
-      <span className={classes.badge}>{numberOfCartItems}</span>
+      <span>
+        <Badge bg="danger" pill>
+          {numberOfCartItems}
+        </Badge>
+      </span>
     </button>
   );
 };
