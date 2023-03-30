@@ -15,22 +15,16 @@ const OrderReceiptModule = (props) => {
   const popover = (
     <Popover id="popover-basic">
       <Popover.Header as="h3" className="pb-3">
-<<<<<<< Updated upstream
-=======
         <Row>
         <Col md={4}>Before you go...</Col>
         <Col md={{span: 4, offset: 4}}>
->>>>>>> Stashed changes
           {/*this actually closes the modal */}
           <Button variant="danger" onClick={handleClose}>
             Close
           </Button>
-<<<<<<< Updated upstream
         
-=======
           </Col>
         </Row>
->>>>>>> Stashed changes
       </Popover.Header>
 
       {/*warning message */}
