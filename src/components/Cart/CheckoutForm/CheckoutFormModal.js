@@ -181,7 +181,7 @@ const CheckoutForm = (props) => {
             placement="right"
             overlay={<Tooltip>This action is final.</Tooltip>}
           >
-            <Button variant="primary" type="submit" className="mb-4">
+            <Button variant="success" type="submit" className="mb-4">
               Pay & Place Order
             </Button>
           </OverlayTrigger>

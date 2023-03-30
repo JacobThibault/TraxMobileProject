@@ -1,4 +1,11 @@
-import { Button, Modal, OverlayTrigger, Popover, Col, Row } from "react-bootstrap";
+import {
+  Button,
+  Modal,
+  OverlayTrigger,
+  Popover,
+  Col,
+  Row,
+} from "react-bootstrap";
 import receipt from "./OrderReceipt.module.css";
 
 const OrderReceiptModule = (props) => {
@@ -16,13 +23,12 @@ const OrderReceiptModule = (props) => {
     <Popover id="popover-basic">
       <Popover.Header as="h3" className="pb-3">
         <Row>
-        <Col md={4}>Before you go...</Col>
-        <Col md={{span: 4, offset: 4}}>
-          {/*this actually closes the modal */}
-          <Button variant="danger" onClick={handleClose}>
-            Close
-          </Button>
-        
+          <Col md={4} className="mt-2">STOP...</Col>
+          <Col md={{ span: 4, offset: 4 }}>
+            {/*this actually closes the modal */}
+            <Button variant="danger" onClick={handleClose}>
+              Close
+            </Button>
           </Col>
         </Row>
       </Popover.Header>
@@ -31,9 +37,6 @@ const OrderReceiptModule = (props) => {
       <Popover.Body>
         Did you save your <strong>Order ID?</strong> It is required upon pickup
       </Popover.Body>
-      <Popover.Footer>
-        
-      </Popover.Footer>
     </Popover>
   );
 

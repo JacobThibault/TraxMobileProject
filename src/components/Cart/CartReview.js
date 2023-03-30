@@ -92,7 +92,7 @@ const CartReview = (props) => {
           </Button>
           {/*show checkout button if there are items in cart */}
           {hasItems && (
-            <Button dialogueClassName={forms.checkout} onClick={handleSubmit}>
+            <Button variant="success" onClick={handleSubmit}>
               Checkout
             </Button>
           )}
