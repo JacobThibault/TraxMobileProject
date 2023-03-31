@@ -11,7 +11,7 @@ import FAQTab from "./MainCard/FAQTab";
 import styles from "./MainCard/MainCard.module.css";
 
 const Header = (props) => {
-  const [nav, setNav] = useState("");
+  const [nav, setNav] = useState("home");
   const handleSetNav = (value) => {
     setNav(value);
   };
