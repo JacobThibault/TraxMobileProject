@@ -5,7 +5,7 @@ import AboutTab from "./AboutTab";
 import FAQTab from "./FAQTab";
 import CouponsTab from "./CouponsTab";
 
-const MealsSummary = () => {
+const MainCard = () => {
   return (
     <section className={classes.summary}>
       <Tab.Container defaultActiveKey="home">
@@ -50,4 +50,4 @@ const MealsSummary = () => {
   );
 };
 
-export default MealsSummary;
+export default MainCard;

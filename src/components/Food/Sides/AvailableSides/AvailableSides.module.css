@@ -1,0 +1,42 @@
+.sides {
+    max-width: 60rem;
+    width: 90%;
+    margin: 2rem auto;
+    animation: sides-appear 1s ease-out forwards;
+}
+
+.sides ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+
+.sides button {
+    font: inherit;
+    cursor: pointer;
+    background-color: #8a2b06;
+    border: 1px solid #8a2b06;
+    color: white;
+    padding: 0.25rem 2rem;
+    border-radius: 20px;
+    font-weight: bold;
+}
+
+.sides button:hover,
+.sides button:active {
+    background-color: #641e03;
+    border-color: #641e03;
+}
+
+@keyframes sides-appear {
+    from {
+        opacity: 0;
+        transform: translateY(3rem);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

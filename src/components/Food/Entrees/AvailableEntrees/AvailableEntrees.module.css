@@ -1,0 +1,42 @@
+.entrees {
+    max-width: 60rem;
+    width: 90%;
+    margin: 2rem auto;
+    animation: entrees-appear 1s ease-out forwards;
+}
+
+.entrees ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.entrees button {
+    font: inherit;
+    cursor: pointer;
+    background-color: green;
+    border: 1px solid #8a2b06;
+    color: white;
+    padding: 0.25rem 2rem;
+    border-radius: 20px;
+    font-weight: bold;
+    flex-direction: row;
+}
+
+.entrees button:hover,
+.entrees button:active {
+    background-color: #641e03;
+    border-color: #641e03;
+}
+
+@keyframes entrees-appear {
+    from {
+        opacity: 0;
+        transform: translateY(3rem);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

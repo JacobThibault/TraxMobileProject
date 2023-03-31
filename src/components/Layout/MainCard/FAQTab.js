@@ -49,7 +49,7 @@ const howToPay = (
       <Container>
         <h2>FAQ</h2>
         <Row className="justify-content-md-center, mt-3">
-          <Col xs lg="2">
+          <Col>
             <OverlayTrigger trigger="hover" placement="top" overlay={getOrder}>
               <Button variant="success">How do I get my order?</Button>
             </OverlayTrigger>
@@ -59,7 +59,7 @@ const howToPay = (
             <Button variant="success">Pay with points or credit card?</Button>
             </OverlayTrigger>
           </Col>
-          <Col xs lg="2">
+          <Col>
           <OverlayTrigger trigger="hover" placement="top" overlay={findOrderId}>
             <Button variant="success">Where is my Order ID?</Button>
             </OverlayTrigger>
