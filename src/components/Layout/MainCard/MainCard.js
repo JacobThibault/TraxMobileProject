@@ -6,11 +6,15 @@ import FAQTab from "./FAQTab";
 import CouponsTab from "./CouponsTab";
 
 const MainCard = () => {
+  
   return (
     <section className={classes.summary}>
+      
+        
+      
       <Tab.Container defaultActiveKey="home">
       <Row>
-        <Col sm={3}>
+        <Col sm={2}>
           <Card className="p-2">
           <Nav variant='pills' className="flex-column">
             <Nav.Item >

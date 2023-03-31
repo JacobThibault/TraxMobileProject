@@ -13,6 +13,13 @@
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
     z-index: 10;
   }
+
+  .second {
+    position: fixed;
+    top: 5rem;
+    width: 100%;
+    z-index: 10;
+  }
   
   .main-image {
     width: 100%;

@@ -23,7 +23,7 @@ const OrderReceiptModule = (props) => {
     <Popover id="popover-basic">
       <Popover.Header as="h3" className="pb-3">
         <Row>
-          <Col md={4} className="mt-2">STOP...</Col>
+          <Col md={4} className="mt-2">Before you go...</Col>
           <Col md={{ span: 4, offset: 4 }}>
             {/*this actually closes the modal */}
             <Button variant="danger" onClick={handleClose}>
@@ -50,7 +50,7 @@ const OrderReceiptModule = (props) => {
         keyboard={false}
         dialogClassName={receipt.modalSize}
       >
-        <Modal.Header closeButton>
+        <Modal.Header>
           <Modal.Title>Receipt</Modal.Title>
         </Modal.Header>
         <Modal.Body>

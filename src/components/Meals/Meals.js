@@ -5,7 +5,6 @@ import { Fragment } from "react";
 const Meals = () => {
   return (
     <Fragment>
-      <MainCard/>
       <AvailableMeals />
     </Fragment>
   );

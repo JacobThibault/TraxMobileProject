@@ -3,11 +3,11 @@ import { Container, Row, Col } from "react-bootstrap";
 const AboutTab = () => {
   return (
     <Container>
-      <h2>What is TRAX Mobile?</h2>
+      <h2>About</h2>
       <Row>
         <Col>
           Choose your favorite entree or snack from our broad selection of
-          available menu items and enjoy a delicious lunch or dinner on the go.
+          available menu items and enjoy a delicious meal on the go.
         </Col>
         <Col>
           Click to add items to your cart, pay with points or credit
