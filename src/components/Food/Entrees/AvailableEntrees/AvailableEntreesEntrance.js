@@ -1,5 +1,4 @@
-import EntreesButton from "../EntreesButton";
-import React, {Fragment} from "react";
+import React from "react";
 import Card from "../../../UI/Card/Card";
 import classes from './AvailableEntrees.module.css'
 
