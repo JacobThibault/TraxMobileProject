@@ -7,7 +7,7 @@ import {
   OverlayTrigger,
 } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
-
+import './MainCard.module.css';
 
 const FAQTab = () => {
   const getOrder = (
