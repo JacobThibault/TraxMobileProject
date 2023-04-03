@@ -1,7 +1,7 @@
 import classes from './EntreesItem.module.css'
 import {useContext} from "react";
 import EntreesItemForm from "./EntreesItemForm/EntreesItemForm";
-import CartContext from "../../../../store/cart-context";
+import CartContext from "../../../../Store/cart-context";
 
 const EntreesItem = (props) =>{
     const cartCtx = useContext(CartContext)

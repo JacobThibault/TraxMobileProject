@@ -1,7 +1,7 @@
 import classes from './SidesItem.module.css'
 import {useContext} from "react";
 import SidesItemForm from "./SidesItemForm/SidesItemForm";
-import CartContext from "../../../../store/cart-context";
+import CartContext from "../../../../Store/cart-context";
 
 const SidesItem = (props) =>{
     const cartCtx = useContext(CartContext)

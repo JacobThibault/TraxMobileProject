@@ -1,5 +1,5 @@
 import DrinksButton from "../DrinksButton";
-import {Fragment} from 'react';
+import react, {Fragment} from 'react';
 import React from "react";
 import Card from "../../../UI/Card/Card";
 import classes from './AvailableDrinks.module.css'

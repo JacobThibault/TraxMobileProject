@@ -1,4 +1,4 @@
-import {Fragment} from 'react';
+import react, {Fragment} from 'react';
 import SidesButton from "../SidesButton";
 import React from "react";
 import Card from "../../../UI/Card/Card";

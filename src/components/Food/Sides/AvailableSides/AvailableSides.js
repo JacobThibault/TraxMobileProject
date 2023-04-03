@@ -2,7 +2,7 @@ import classes from './AvailableSides.module.css'
 import Card from "../../../UI/Card/Card";
 import SidesItem from "../SidesItem/SidesItem";
 import {useEffect, useState} from 'react';
-import Modal from "../../../UI/Modal/Modal";
+import Modal from "../../../UI/Modal";
 
 const AvailableSides = (props) => {
 

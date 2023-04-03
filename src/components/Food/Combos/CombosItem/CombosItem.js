@@ -1,7 +1,7 @@
 import classes from './CombosItem.module.css'
 import {useContext} from "react";
 import CombosItemForm from "./CombosItemForm/CombosItemForm";
-import CartContext from "../../../../store/cart-context";
+import CartContext from "../../../../Store/cart-context";
 
 const CombosItem = (props) =>{
     const cartCtx = useContext(CartContext)
