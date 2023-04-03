@@ -4,6 +4,8 @@ import EntreesItem from "../EntreesItem/EntreesItem";
 import {useEffect, useState} from 'react';
 import Modal from "../../../UI/Modal/Modal";
 
+import {Button} from 'react-bootstrap';
+
 const AvailableEntrees = (props) => {
 
     const [retrievedEntreeList, setRetrievedEntreeList] = useState([]);
@@ -50,7 +52,7 @@ const AvailableEntrees = (props) => {
                     </Card>
                 </section>
                 <br/>
-                <button onClick={props.onClose}> Close </button>
+                <Button variant="success" onClick={props.onClose}> Close </Button>
             </div>
         </Modal>
     );

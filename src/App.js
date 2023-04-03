@@ -16,7 +16,6 @@ import AvailableDrinks from "./components/Food/Drinks/AvailableDrinks/AvailableD
 import AvailableDrinksEntrance from "./components/Food/Drinks/AvailableDrinks/AvailableDrinksEntrance";
 import AvailableCombosEntrance from "./components/Food/Combos/AvailableCombos/AvailableCombosEntrance";
 
-
 function App() {
   const [cartIsShown, setCartIsShown] = useState(false);
 
@@ -29,40 +28,40 @@ function App() {
   };
 
   const [entreesIsShown, setEntreesIsShown] = useState(false);
-  const showEntreesHandler = () => {
-      setEntreesIsShown(true);
-  }
+  const handleEntreesHandler = () => {
+    setEntreesIsShown(!entreesIsShown);
+  };
   const hideEntreesHandler = () => {
-      setEntreesIsShown(false);
-  }
+    setEntreesIsShown(false);
+  };
 
   const [sidesIsShown, setSidesIsShown] = useState(false);
   const showSidesHandler = () => {
-      setSidesIsShown(true);
-  }
+    setSidesIsShown(true);
+  };
   const hideSidesHandler = () => {
-      setSidesIsShown(false);
-  }
+    setSidesIsShown(false);
+  };
 
   const [drinksIsShown, setDrinksIsShown] = useState(false);
   const showDrinksHandler = () => {
-      setDrinksIsShown(true);
-  }
+    setDrinksIsShown(true);
+  };
   const hideDrinksHandler = () => {
-      setDrinksIsShown(false);
-  }
+    setDrinksIsShown(false);
+  };
 
   const [combosIsShown, setCombosIsShown] = useState(false);
   const showCombosHandler = () => {
-      setCombosIsShown(true);
-  }
+    setCombosIsShown(true);
+  };
   const hideCombosHandler = () => {
-      setCombosIsShown(false);
-  }
+    setCombosIsShown(false);
+  };
 
   return (
     <>
-    {/*toast appears for each item added to cart 
+      {/*toast appears for each item added to cart 
       <ToastContainer position="top-start" className="m-3">
         <CartToast message="Fries"/>
         <CartToast message="Pizza"/>
@@ -74,22 +73,23 @@ function App() {
         {cartIsShown && <Cart onClose={hideCartHandler} />}
         <Header onShowCart={showCartHandler} />
         <main>
-         {/* <Meals /> */}
-          <div id={"entrees"} className={"anchor"}/>
-              {entreesIsShown && <AvailableEntrees onClose={hideEntreesHandler}/>}
-              <AvailableEntreesEntrance onShowEntree={showEntreesHandler}/>
+          {/* <Meals /> */}
 
-              <div id={"sides"} className={"anchor"}/>
-              {sidesIsShown && <AvailableSides onClose={hideSidesHandler}/>}
-              <AvailableSidesEntrance onShowSide={showSidesHandler}/>
+          <div id={"entrees"} className={"anchor"} />
+          {entreesIsShown && <AvailableEntrees onClose={handleEntreesHandler} />}
+          <AvailableEntreesEntrance onShowEntree={handleEntreesHandler} />
 
-              <div id={"drinks"} className={"anchor"}/>
-              {drinksIsShown && <AvailableDrinks onClose={hideDrinksHandler}/>}
-              <AvailableDrinksEntrance onShowDrink={showDrinksHandler}/>
+          <div id={"sides"} className={"anchor"} />
+          {sidesIsShown && <AvailableSides onClose={hideSidesHandler} />}
+          <AvailableSidesEntrance onShowSide={showSidesHandler} />
 
-              <div id={"combos"} className={"anchor"}/>
-              {combosIsShown && <AvailableCombos onClose={hideCombosHandler}/>}
-              <AvailableCombosEntrance onShowCombo={showCombosHandler}/>
+          <div id={"drinks"} className={"anchor"} />
+          {drinksIsShown && <AvailableDrinks onClose={hideDrinksHandler} />}
+          <AvailableDrinksEntrance onShowDrink={showDrinksHandler} />
+
+          <div id={"combos"} className={"anchor"} />
+          {combosIsShown && <AvailableCombos onClose={hideCombosHandler} />}
+          <AvailableCombosEntrance onShowCombo={showCombosHandler} />
         </main>
       </CartProvider>
     </>

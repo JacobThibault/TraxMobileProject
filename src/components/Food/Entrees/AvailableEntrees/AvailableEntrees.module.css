@@ -11,6 +11,7 @@
     padding: 0;
 }
 
+/*
 .entrees button {
     font: inherit;
     cursor: pointer;
@@ -28,6 +29,7 @@
     background-color: #641e03;
     border-color: #641e03;
 }
+*/
 
 @keyframes entrees-appear {
     from {
