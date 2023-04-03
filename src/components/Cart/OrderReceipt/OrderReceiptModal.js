@@ -1,12 +1,12 @@
 import {
   Button,
   Modal,
-  OverlayTrigger,
-  Popover,
-  Col,
-  Row,
+  Toast,
+  ToastContainer,
 } from "react-bootstrap";
+import { useState } from "react";
 import receipt from "./OrderReceipt.module.css";
+import logo from "../../Layout/Brockp_Gold_Eagles_logo.png";
 
 const OrderReceiptModule = (props) => {
   //modal
@@ -18,27 +18,9 @@ const OrderReceiptModule = (props) => {
     props.refresh();
   };
 
-  //popover for close button
-  const popover = (
-    <Popover id="popover-basic">
-      <Popover.Header as="h3" className="pb-3">
-        <Row>
-          <Col md={4} className="mt-2">Before you go...</Col>
-          <Col md={{ span: 4, offset: 4 }}>
-            {/*this actually closes the modal */}
-            <Button variant="danger" onClick={handleClose}>
-              Close
-            </Button>
-          </Col>
-        </Row>
-      </Popover.Header>
-
-      {/*warning message */}
-      <Popover.Body>
-        Did you save your <strong>Order ID?</strong> It is required upon pickup
-      </Popover.Body>
-    </Popover>
-  );
+  //warning toast for close button
+  const [showToast, setShowToast] = useState(false);
+  const toggleShowToast = () => setShowToast(!showToast);
 
   return (
     <div>
@@ -90,10 +72,29 @@ const OrderReceiptModule = (props) => {
         </Modal.Body>
         <Modal.Footer>
           {/*close button */}
-          <OverlayTrigger trigger="click" placement="top" overlay={popover}>
-            <Button variant="secondary">Close</Button>
-          </OverlayTrigger>
+          <Button variant="secondary" onClick={toggleShowToast}>
+            Close
+          </Button>
         </Modal.Footer>
+
+        {/*toast to actually close */}
+        <ToastContainer position="middle-center">
+          <Toast show={showToast} onClose={toggleShowToast}>
+            <Toast.Header>
+              <img src={logo} height="20px" width="auto" alt="logo"></img>
+              <strong className="me-auto">&nbsp;Trax Mobile</strong>
+              <small className="text-muted">just now</small>
+            </Toast.Header>
+            <Toast.Body className="m-3 text-dark">
+              Did you save your <strong>Order ID?</strong> It is required upon
+              pickup
+              <br />
+              <Button variant="danger" className="mt-3" onClick={handleClose}>
+                Yes, Finish
+              </Button>
+            </Toast.Body>
+          </Toast>
+        </ToastContainer>
       </Modal>
     </div>
   );

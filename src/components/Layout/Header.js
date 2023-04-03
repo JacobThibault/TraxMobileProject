@@ -37,7 +37,7 @@ const Header = (props) => {
     <>
       <header className={classes.header}>
         <h1> 
-          <img src={logo} height='50px' width='auto'></img>
+          <img src={logo} height='50px' width='auto' alt="logo"></img>
           &nbsp; Trax Mobile </h1>
         <HeaderCartButton onClick={props.onShowCart} />
       </header>
