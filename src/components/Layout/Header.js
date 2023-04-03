@@ -2,29 +2,31 @@ import { useState } from "react";
 import HeaderCartButton from "./HeaderCartButton";
 import mealsImage from "../../assets/meals.jpg";
 import classes from "./Header.module.css";
-import { Container, Nav, Navbar, NavDropdown, Stack } from "react-bootstrap";
-import MainCard from "./MainCard/MainCard";
+import { Container, Nav, Navbar, NavDropdown, Stack, Badge } from "react-bootstrap";
 import HomeTab from "./MainCard/HomeTab";
 import AboutTab from "./MainCard/AboutTab";
 import CouponsTab from "./MainCard/CouponsTab";
 import FAQTab from "./MainCard/FAQTab";
 import styles from "./MainCard/MainCard.module.css";
+import logo from './Brockp_Gold_Eagles_logo.png';
 
 const Header = (props) => {
-  const [nav, setNav] = useState("home");
+  //default card is home
+  const [nav, setNav] = useState("Home");
   const handleSetNav = (value) => {
     setNav(value);
   };
 
+  //show different main cards based on dropdown value
   const showCard = (value) => {
     switch (value) {
-      case "home":
+      case "Home":
         return <HomeTab />;
-      case "about":
+      case "About":
         return <AboutTab />;
-      case "coupons":
+      case "Coupons":
         return <CouponsTab />;
-      case "faq":
+      case "FAQ":
         return <FAQTab />;
       default:
         <HomeTab />;
@@ -34,7 +36,9 @@ const Header = (props) => {
   return (
     <>
       <header className={classes.header}>
-        <h1> Trax Mobile </h1>
+        <h1> 
+          <img src={logo} height='50px' width='auto'></img>
+          &nbsp; Trax Mobile </h1>
         <HeaderCartButton onClick={props.onShowCart} />
       </header>
 
@@ -47,30 +51,34 @@ const Header = (props) => {
                 <Nav.Link href="#sides">Sides</Nav.Link>
                 <Nav.Link href="#drinks">Drinks</Nav.Link>
                 <Nav.Link href="#combos">Combos</Nav.Link>
-                <NavDropdown title="More">
-                  <NavDropdown.Item onClick={() => handleSetNav("home")}>
+                <Badge bg="secondary">
+                <NavDropdown title={nav}>
+                  <NavDropdown.Item onClick={() => handleSetNav("Home")}>
                     Home
                   </NavDropdown.Item>
-                  <NavDropdown.Item onClick={() => handleSetNav("about")}>
+                  <NavDropdown.Item onClick={() => handleSetNav("About")}>
                     About
                   </NavDropdown.Item>
-                  <NavDropdown.Item onClick={() => handleSetNav("coupons")}>
+                  <NavDropdown.Item onClick={() => handleSetNav("Coupons")}>
                     Coupons
                   </NavDropdown.Item>
-                  <NavDropdown.Item onClick={() => handleSetNav("faq")}>
+                  <NavDropdown.Item onClick={() => handleSetNav("FAQ")}>
                     FAQ
                   </NavDropdown.Item>
                 </NavDropdown>
+                </Badge>
               </Stack>
             </Nav>
           </Container>
         </Navbar>
       </div>
 
+      {/*background image */}
       <div className={classes["main-image"]}>
         <img src={mealsImage} alt="Food served at Brockport" />
       </div>
 
+      {/*show different main cards */}
       <section className={styles.summary}>{showCard(nav)}</section>
     </>
   );

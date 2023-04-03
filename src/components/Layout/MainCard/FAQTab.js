@@ -5,6 +5,7 @@ import {
   Button,
   Popover,
   OverlayTrigger,
+  Card
 } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import './MainCard.module.css';
@@ -43,25 +44,43 @@ const howToPay = (
     </Popover>
     );
 
+    const lottery = (
+      <Popover>
+        <Popover.Header as="h3">Coupon Lottery</Popover.Header>
+        <Popover.Body>
+          The coupon lottery is a <strong>daily coupon give-away </strong>
+          where you have the chance to get a random <strong>free coupon code </strong>
+          to use at checkout!
+        </Popover.Body>
+      </Popover>
+      );
+
   return (
     <>
     
       <Container>
-        <h2>FAQ</h2>
+      <Card bg="secondary p-2 mb-5">
+        <h2>Frequently Asked Questions</h2>
+      </Card>
         <Row className="justify-content-md-center, mt-3">
           <Col>
             <OverlayTrigger trigger="focus" placement="top" overlay={getOrder}>
-              <Button variant="success">How do I get my order?</Button>
-            </OverlayTrigger>
-          </Col>
-          <Col>
-          <OverlayTrigger trigger="focus" placement="top" overlay={howToPay}>
-            <Button variant="success">Pay with points or credit card?</Button>
+              <Button variant="success" className="p-3">How do I get my order?</Button>
             </OverlayTrigger>
           </Col>
           <Col>
           <OverlayTrigger trigger="focus" placement="top" overlay={findOrderId}>
-            <Button variant="success">Where is my Order ID?</Button>
+            <Button variant="success" className="p-3">Where is my Order ID?</Button>
+            </OverlayTrigger>
+          </Col>
+          <Col>
+          <OverlayTrigger trigger="focus" placement="top" overlay={howToPay}>
+            <Button variant="success" className="p-3">Pay with points or credit card?</Button>
+            </OverlayTrigger>
+          </Col>
+          <Col>
+          <OverlayTrigger trigger="focus" placement="top" overlay={lottery}>
+            <Button variant="success" className="p-3">What is the coupon lottery?</Button>
             </OverlayTrigger>
           </Col>
         </Row>

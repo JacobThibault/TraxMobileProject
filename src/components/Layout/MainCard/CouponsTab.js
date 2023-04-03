@@ -1,4 +1,4 @@
-import { Button, Spinner, Form } from "react-bootstrap";
+import { Button, Spinner, Form, Card } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { useState } from "react";
 
@@ -53,8 +53,12 @@ const CouponsTab = () => {
 
   return (
     <>
+    <Card bg="secondary p-2 mb-2">
       <h2>Daily Coupon Lottery</h2>
-
+</Card>
+<Form.Group>
+<Form.Label>Get your random coupon code for today!</Form.Label>
+</Form.Group>
       <Button
         variant="success"
         onClick={handleLoading}

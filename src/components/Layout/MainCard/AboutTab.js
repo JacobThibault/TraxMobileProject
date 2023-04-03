@@ -1,9 +1,10 @@
-import { Container, Row, Col } from "react-bootstrap";
+import { Container, Card } from "react-bootstrap";
 
 const AboutTab = () => {
   return (
     <Container>
-      <h2>About</h2>
+      <Card bg="secondary p-2 mb-5">
+      <h2>About</h2></Card>
       <p>
           Choose your favorite entree or snack from our broad selection of
           available menu items and enjoy a delicious meal on the go.

@@ -17,18 +17,13 @@ function App() {
     setCartIsShown(false);
   };
 
-  const [nav, setNav] = useState("");
-  const handleSetNav = (value) => {
-    setNav(value);
-  };
-
   return (
     <CartProvider>
       {/*show cart if cartIsShown is true */}
       {cartIsShown && <Cart onClose={hideCartHandler} />}
-      <Header onShowCart={showCartHandler} navSelect={handleSetNav}/>
+      <Header onShowCart={showCartHandler}/>
       <main>
-        <Meals navSelect={nav}/>
+        <Meals/>
       </main>
     </CartProvider>
   );
