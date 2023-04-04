@@ -31,31 +31,19 @@ const EntreeCarousel = () => {
   const data = [
     {
       image: burger,
-      caption: "Chicken Sandwich",
-      description: (
-        <AvailableEntreesEntrance onShowEntree={handleEntreesHandler} />
-      ),
+      description: "Chicken Sandwich",
     },
     {
       image: burger,
-      caption: "Cheese Burger",
-      description: (
-        <AvailableEntreesEntrance onShowEntree={handleEntreesHandler} />
-      ),
+      description: "Cheese Burger",
     },
     {
       image: fries,
-      caption: "Five Hand breaded Chicken Fingers",
-      description: (
-          <AvailableEntreesEntrance onShowEntree={handleEntreesHandler} />
-      ),
+      description: "Five Hand breaded Chicken Fingers",
     },
     {
       image: pizza,
-      caption: "Chicken Quesadilla",
-      description: (
-        <AvailableEntreesEntrance onShowEntree={handleEntreesHandler} />
-      ),
+      description: "Chicken Quesadilla",
     },
   ];
 
@@ -75,8 +63,10 @@ const EntreeCarousel = () => {
                     width="auto"
                   />
                   <Carousel.Caption>
-                    <h3>{slide.caption}</h3>
-                    <p>{slide.description}</p>
+                    <AvailableEntreesEntrance
+                      onShowEntree={handleEntreesHandler}
+                    />
+                    <h5>{slide.description}</h5>
                   </Carousel.Caption>
                 </Carousel.Item>
               );
@@ -84,6 +74,7 @@ const EntreeCarousel = () => {
           </Carousel>
         </Card>
       </section>
+      {/*launch modal */}
       {entreesIsShown && <AvailableEntrees onClose={handleEntreesHandler} />}
     </>
   );

@@ -9,8 +9,8 @@ const AvailableEntreesEntrance = (props) => {
         <section className= {classes.entrees}>
             
                 <span>
-                    {/*<h1>Pick your entrees here!</h1>*/}
-                    <Button variant="success" onClick={props.onShowEntree}>Browse All Entrees</Button>
+                    <h1>Pick your entrees here!</h1>
+                    <Button variant="success" onClick={props.onShowEntree} className="mt-3">Browse Entrees</Button>
                 </span>
            
         </section>
