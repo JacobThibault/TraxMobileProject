@@ -1,40 +1,39 @@
 import React, { useState } from "react";
 
 import Header from "./components/Layout/Header";
-import Meals from "./components/Meals/Meals";
+//import Meals from "./components/Meals/Meals";
 import Cart from "./components/Cart/Cart";
 import CartProvider from "./Store/CartProvider";
 //import CartToast from "./components/Layout/CartToast";
 //import { ToastContainer } from "react-bootstrap";
 
+
+
+//import Card from "../src/components/UI/Card";
+//import classes from "../src/components/Food/Entrees/AvailableEntrees/AvailableEntrees.module.css";
+
 import AvailableCombos from "./components/Food/Combos/AvailableCombos/AvailableCombos";
-import AvailableEntreesEntrance from "./components/Food/Entrees/AvailableEntrees/AvailableEntreesEntrance";
-import AvailableEntrees from "./components/Food/Entrees/AvailableEntrees/AvailableEntrees";
+//import AvailableEntreesEntrance from "./components/Food/Entrees/AvailableEntrees/AvailableEntreesEntrance";
+//import AvailableEntrees from "./components/Food/Entrees/AvailableEntrees/AvailableEntrees";
 import AvailableSides from "./components/Food/Sides/AvailableSides/AvailableSides";
 import AvailableSidesEntrance from "./components/Food/Sides/AvailableSides/AvailableSidesEntrance";
 import AvailableDrinks from "./components/Food/Drinks/AvailableDrinks/AvailableDrinks";
 import AvailableDrinksEntrance from "./components/Food/Drinks/AvailableDrinks/AvailableDrinksEntrance";
 import AvailableCombosEntrance from "./components/Food/Combos/AvailableCombos/AvailableCombosEntrance";
+import EntreeCarousel from "./components/Layout/MealCarousel/EntreeCarousel";
+import Footer from "./components/Layout/Footer";
 
 function App() {
+  //show cart
   const [cartIsShown, setCartIsShown] = useState(false);
-
   const showCartHandler = () => {
     setCartIsShown(true);
   };
-
   const hideCartHandler = () => {
     setCartIsShown(false);
   };
 
-  const [entreesIsShown, setEntreesIsShown] = useState(false);
-  const handleEntreesHandler = () => {
-    setEntreesIsShown(!entreesIsShown);
-  };
-  const hideEntreesHandler = () => {
-    setEntreesIsShown(false);
-  };
-
+ //show sides
   const [sidesIsShown, setSidesIsShown] = useState(false);
   const showSidesHandler = () => {
     setSidesIsShown(true);
@@ -43,6 +42,7 @@ function App() {
     setSidesIsShown(false);
   };
 
+  //show drinks
   const [drinksIsShown, setDrinksIsShown] = useState(false);
   const showDrinksHandler = () => {
     setDrinksIsShown(true);
@@ -51,6 +51,7 @@ function App() {
     setDrinksIsShown(false);
   };
 
+  //show combos
   const [combosIsShown, setCombosIsShown] = useState(false);
   const showCombosHandler = () => {
     setCombosIsShown(true);
@@ -65,19 +66,19 @@ function App() {
       <ToastContainer position="top-start" className="m-3">
         <CartToast message="Fries"/>
         <CartToast message="Pizza"/>
+        <CartToast message="Cheese Burger"/>
       </ToastContainer>
       */}
 
       <CartProvider>
         {/*show cart if cartIsShown is true */}
         {cartIsShown && <Cart onClose={hideCartHandler} />}
-        <Header onShowCart={showCartHandler} />
+        <Header onShowCart={showCartHandler}/>
         <main>
           {/* <Meals /> */}
 
           <div id={"entrees"} className={"anchor"} />
-          {entreesIsShown && <AvailableEntrees onClose={handleEntreesHandler} />}
-          <AvailableEntreesEntrance onShowEntree={handleEntreesHandler} />
+          <EntreeCarousel/>
 
           <div id={"sides"} className={"anchor"} />
           {sidesIsShown && <AvailableSides onClose={hideSidesHandler} />}
@@ -92,6 +93,7 @@ function App() {
           <AvailableCombosEntrance onShowCombo={showCombosHandler} />
         </main>
       </CartProvider>
+      <Footer/>
     </>
   );
 }

@@ -2,13 +2,20 @@ import { useState } from "react";
 import HeaderCartButton from "./HeaderCartButton";
 import mealsImage from "../../assets/meals.jpg";
 import classes from "./Header.module.css";
-import { Container, Nav, Navbar, NavDropdown, Stack, Badge } from "react-bootstrap";
+import {
+  Container,
+  Nav,
+  Navbar,
+  NavDropdown,
+  Stack,
+  Badge,
+} from "react-bootstrap";
 import HomeTab from "./MainCard/HomeTab";
 import AboutTab from "./MainCard/AboutTab";
 import CouponsTab from "./MainCard/CouponsTab";
 import FAQTab from "./MainCard/FAQTab";
 import styles from "./MainCard/MainCard.module.css";
-import logo from './Brockp_Gold_Eagles_logo.png';
+import logo from "./Brockp_Gold_Eagles_logo.png";
 
 const Header = (props) => {
   //default card is home
@@ -36,9 +43,11 @@ const Header = (props) => {
   return (
     <>
       <header className={classes.header}>
-        <h1> 
-          <img src={logo} height='50px' width='auto' alt="logo"></img>
-          &nbsp; Trax Mobile </h1>
+        <h1>
+          <img src={logo} height="50px" width="auto" alt="logo"></img>
+          &nbsp; Trax Mobile
+        </h1>
+        
         <HeaderCartButton onClick={props.onShowCart} />
       </header>
 
@@ -52,20 +61,20 @@ const Header = (props) => {
                 <Nav.Link href="#drinks">Drinks</Nav.Link>
                 <Nav.Link href="#combos">Combos</Nav.Link>
                 <Badge bg="secondary">
-                <NavDropdown title={nav}>
-                  <NavDropdown.Item onClick={() => handleSetNav("Home")}>
-                    Home
-                  </NavDropdown.Item>
-                  <NavDropdown.Item onClick={() => handleSetNav("About")}>
-                    About
-                  </NavDropdown.Item>
-                  <NavDropdown.Item onClick={() => handleSetNav("Coupons")}>
-                    Coupons
-                  </NavDropdown.Item>
-                  <NavDropdown.Item onClick={() => handleSetNav("FAQ")}>
-                    FAQ
-                  </NavDropdown.Item>
-                </NavDropdown>
+                  <NavDropdown title={nav}>
+                    <NavDropdown.Item onClick={() => handleSetNav("Home")}>
+                      Home
+                    </NavDropdown.Item>
+                    <NavDropdown.Item onClick={() => handleSetNav("About")}>
+                      About
+                    </NavDropdown.Item>
+                    <NavDropdown.Item onClick={() => handleSetNav("Coupons")}>
+                      Coupons
+                    </NavDropdown.Item>
+                    <NavDropdown.Item onClick={() => handleSetNav("FAQ")}>
+                      FAQ
+                    </NavDropdown.Item>
+                  </NavDropdown>
                 </Badge>
               </Stack>
             </Nav>
