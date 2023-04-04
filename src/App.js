@@ -7,8 +7,6 @@ import CartProvider from "./Store/CartProvider";
 //import CartToast from "./components/Layout/CartToast";
 //import { ToastContainer } from "react-bootstrap";
 
-
-
 //import Card from "../src/components/UI/Card";
 //import classes from "../src/components/Food/Entrees/AvailableEntrees/AvailableEntrees.module.css";
 
@@ -20,6 +18,7 @@ import AvailableSidesEntrance from "./components/Food/Sides/AvailableSides/Avail
 import AvailableDrinks from "./components/Food/Drinks/AvailableDrinks/AvailableDrinks";
 import AvailableDrinksEntrance from "./components/Food/Drinks/AvailableDrinks/AvailableDrinksEntrance";
 import AvailableCombosEntrance from "./components/Food/Combos/AvailableCombos/AvailableCombosEntrance";
+
 import EntreeCarousel from "./components/Layout/MealCarousel/EntreeCarousel";
 import Footer from "./components/Layout/Footer";
 
@@ -33,7 +32,7 @@ function App() {
     setCartIsShown(false);
   };
 
- //show sides
+  //show sides
   const [sidesIsShown, setSidesIsShown] = useState(false);
   const showSidesHandler = () => {
     setSidesIsShown(true);
@@ -73,12 +72,14 @@ function App() {
       <CartProvider>
         {/*show cart if cartIsShown is true */}
         {cartIsShown && <Cart onClose={hideCartHandler} />}
-        <Header onShowCart={showCartHandler}/>
+        <div id={"home"} className={"anchor"} />
+        <Header onShowCart={showCartHandler} />
         <main>
           {/* <Meals /> */}
 
+          {/*entree carousel */}
           <div id={"entrees"} className={"anchor"} />
-          <EntreeCarousel/>
+          <EntreeCarousel />
 
           <div id={"sides"} className={"anchor"} />
           {sidesIsShown && <AvailableSides onClose={hideSidesHandler} />}
@@ -93,7 +94,9 @@ function App() {
           <AvailableCombosEntrance onShowCombo={showCombosHandler} />
         </main>
       </CartProvider>
-      <Footer/>
+      
+      {/*footer at bottom */}
+      <Footer />
     </>
   );
 }
