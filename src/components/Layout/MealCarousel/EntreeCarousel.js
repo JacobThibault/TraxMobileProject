@@ -1,9 +1,10 @@
 import { useState } from "react";
-import { Carousel } from "react-bootstrap";
+import { Carousel, Image } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import burger from "./burger.jpg";
-import pizza from "./pizza.webp";
-import fries from "./fries.webp";
+import chickenquesadilla from "./chickenquesadilla.jpg";
+import chickenfingers from "./chickenfingers.jpeg";
+import chickensanwich from "./chickensanwich.jpg";
 import Card from "../../UI/Card/Card";
 import classes from "../../Food/Entrees/AvailableEntrees/AvailableEntrees.module.css";
 import AvailableEntreesEntrance from "../../Food/Entrees/AvailableEntrees/AvailableEntreesEntrance";
@@ -30,7 +31,7 @@ const EntreeCarousel = () => {
   //carousel data
   const data = [
     {
-      image: burger,
+      image: chickensanwich,
       description: "Chicken Sandwich",
     },
     {
@@ -38,11 +39,11 @@ const EntreeCarousel = () => {
       description: "Cheese Burger",
     },
     {
-      image: fries,
+      image: chickenfingers,
       description: "Five Hand breaded Chicken Fingers",
     },
     {
-      image: pizza,
+      image: chickenquesadilla,
       description: "Chicken Quesadilla",
     },
   ];
@@ -55,12 +56,12 @@ const EntreeCarousel = () => {
             {data.map((slide, i) => {
               return (
                 <Carousel.Item>
-                  <img
+                  <Image
                     className="d-block w-100"
                     src={slide.image}
                     alt={slide.caption}
-                    height="650px"
-                    width="auto"
+                    fluid={true}
+                    rounded={true}
                   />
                   <Carousel.Caption>
                     <AvailableEntreesEntrance

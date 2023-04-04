@@ -5,6 +5,7 @@ import {
   Card,
   Toast,
   ToastContainer,
+  Container,
 } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { useState } from "react";
@@ -78,9 +79,9 @@ const CouponsTab = () => {
   };
 
   return (
-    <>
+    <Container>
       <Card bg="secondary p-2 mb-2">
-        <h2>Daily Coupon Lottery</h2>
+        <h2>Coupon Lottery</h2>
       </Card>
       <Form.Group>
         <Form.Label>Get your random coupon code for today!</Form.Label>
@@ -110,7 +111,7 @@ const CouponsTab = () => {
           <Form.Control value={code} disabled className="mt-2" />{" "}
         </Form.Label>
       </Form.Group>
-    </>
+    </Container>
   );
 };
 

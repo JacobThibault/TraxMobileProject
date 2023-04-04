@@ -47,7 +47,6 @@ const Header = (props) => {
           <img src={logo} height="50px" width="auto" alt="logo"></img>
           &nbsp; Trax Mobile
         </h1>
-
         <HeaderCartButton onClick={props.onShowCart} />
       </header>
 
@@ -56,11 +55,7 @@ const Header = (props) => {
           <Container>
             <Nav className="mx-auto">
               <Stack direction="horizontal" gap={5}>
-                <Nav.Link href="#entrees">Entrees</Nav.Link>
-                <Nav.Link href="#sides">Sides</Nav.Link>
-                <Nav.Link href="#drinks">Drinks</Nav.Link>
-                <Nav.Link href="#combos">Combos</Nav.Link>
-                <Badge bg="secondary">
+              <Badge bg="secondary">
                   <NavDropdown title={nav}>
                     <NavDropdown.Item onClick={() => handleSetNav("Home")}>
                       Home
@@ -76,6 +71,10 @@ const Header = (props) => {
                     </NavDropdown.Item>
                   </NavDropdown>
                 </Badge>
+                <Nav.Link href="#entrees" className="text-light">Entrees</Nav.Link>
+                <Nav.Link href="#sides" className="text-light">Sides</Nav.Link>
+                <Nav.Link href="#drinks" className="text-light">Drinks</Nav.Link>
+                <Nav.Link href="#combos" className="text-light">Combos</Nav.Link>
               </Stack>
             </Nav>
           </Container>
