@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import HeaderCartButton from "./HeaderCartButton";
 import mealsImage from "../../assets/meals.jpg";
 import classes from "./Header.module.css";
@@ -8,7 +8,7 @@ import {
   Navbar,
   NavDropdown,
   Stack,
-  Badge,
+  Pagination,
 } from "react-bootstrap";
 import HomeTab from "./MainCard/HomeTab";
 import AboutTab from "./MainCard/AboutTab";
@@ -41,15 +41,20 @@ const Header = (props) => {
     }
   };
 
-  const dropdown = () => {
-    return <>
-    
-    </>
-  };
+  useEffect(() => {
+    //scroll to top on page load
+    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+  }, []);
 
   return (
     <>
-      <header className={classes.header}>
+      <header
+        className={classes.header}
+        //scroll to top of page is header is clicked
+        onClick={() => {
+          window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+        }}
+      >
         <h1>
           <img src={logo} height="50px" width="auto" alt="logo"></img>
           &nbsp; Trax Mobile
@@ -62,22 +67,22 @@ const Header = (props) => {
           <Container>
             <Nav className="mx-auto">
               <Stack direction="horizontal" gap={5}>
-                <Badge bg="secondary">
-                  <NavDropdown title={nav}>
-                    <NavDropdown.Item onClick={() => handleSetNav("Home")}>
-                      Home
-                    </NavDropdown.Item>
-                    <NavDropdown.Item onClick={() => handleSetNav("About")}>
-                      About
-                    </NavDropdown.Item>
-                    <NavDropdown.Item onClick={() => handleSetNav("Coupons")}>
-                      Coupons
-                    </NavDropdown.Item>
-                    <NavDropdown.Item onClick={() => handleSetNav("FAQ")}>
-                      FAQ
-                    </NavDropdown.Item>
-                  </NavDropdown>
-                </Badge>
+                {/**                 
+                <NavDropdown title={nav}>
+                  <NavDropdown.Item onClick={() => handleSetNav("Home")}>
+                    Home
+                  </NavDropdown.Item>
+                  <NavDropdown.Item onClick={() => handleSetNav("About")}>
+                    About
+                  </NavDropdown.Item>
+                  <NavDropdown.Item onClick={() => handleSetNav("Coupons")}>
+                    Coupons
+                  </NavDropdown.Item>
+                  <NavDropdown.Item onClick={() => handleSetNav("FAQ")}>
+                    FAQ
+                  </NavDropdown.Item>
+                </NavDropdown>
+*/}
                 <Nav.Link href="#entrees" className="text-light">
                   Entrees
                 </Nav.Link>
@@ -103,10 +108,51 @@ const Header = (props) => {
 
       {/*show different main cards */}
       <section className={styles.summary}>
-        
         <Container>
           <h1 className={tab.title}>{nav}</h1>
           {showCard(nav)}
+
+          {/*nav buttons */}
+          <Pagination size="sm" className="d-flex justify-content-center mt-4">
+            <Pagination.Prev
+              onClick={() => {
+                if (nav === "Home") {
+                  handleSetNav("FAQ");
+                } else if (nav === "About") {
+                  handleSetNav("Home");
+                } else if (nav === "Coupons") {
+                  handleSetNav("About");
+                } else if (nav === "FAQ") {
+                  handleSetNav("Coupons");
+                }
+              }}
+            />
+            <Pagination.Item onClick={() => handleSetNav("Home")}>
+              {"Home"}
+            </Pagination.Item>
+            <Pagination.Item onClick={() => handleSetNav("About")}>
+              {"About"}
+            </Pagination.Item>
+            <Pagination.Item onClick={() => handleSetNav("Coupons")}>
+              {"Coupons"}
+            </Pagination.Item>
+            <Pagination.Item onClick={() => handleSetNav("FAQ")}>
+              {"FAQ"}
+            </Pagination.Item>
+            <Pagination.Next
+              onClick={() => {
+                if (nav === "Home") {
+                  handleSetNav("About");
+                } else if (nav === "About") {
+                  handleSetNav("Coupons");
+                } else if (nav === "Coupons") {
+                  handleSetNav("FAQ");
+                } else if (nav === "FAQ") {
+                  handleSetNav("Home");
+                }
+              }}
+            />
+          </Pagination>
         </Container>
       </section>
     </>

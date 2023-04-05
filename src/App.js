@@ -41,7 +41,7 @@ function App() {
         <main>
           {/* <Meals /> */}
 
-          {/*entree carousel */}
+          {/*meal carousel */}
           <div id={"entrees"} className={"anchor"} />
           <EntreeCarousel />
 

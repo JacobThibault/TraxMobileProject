@@ -47,7 +47,7 @@ const EntreeCarousel = () => {
     <>
       <section className={classes.entrees}>
         <Card>
-        <h1 className={classes.title}>Entrees</h1>
+          <h1 className={classes.title}>Entrees</h1>
           <Carousel activeIndex={index} onSelect={handleSelect}>
             {data.map((slide, i) => {
               return (
