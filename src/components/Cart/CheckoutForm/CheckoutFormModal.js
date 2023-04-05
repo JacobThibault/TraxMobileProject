@@ -6,6 +6,7 @@ import {
   OverlayTrigger,
   Modal,
   Tooltip,
+  Stack,
 } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { useState } from "react";
@@ -73,7 +74,7 @@ const CheckoutForm = (props) => {
       show={show}
       onHide={handleClose}
       keyboard={false}
-     // dialogClassName={forms.myModal}
+      // dialogClassName={forms.myModal}
     >
       <Modal.Header closeButton>
         <Modal.Title>Payment</Modal.Title>
@@ -85,7 +86,7 @@ const CheckoutForm = (props) => {
             <Row className="mb-3">
               <Form.Group as={Col} controlId="First">
                 <Form.Label>Student Name*</Form.Label>
-                <Form.Control required autoFocus/>
+                <Form.Control required autoFocus />
                 <Form.Text className="text-muted">First</Form.Text>
               </Form.Group>
 
@@ -129,19 +130,17 @@ const CheckoutForm = (props) => {
               <Form.Label>Payment</Form.Label>
               <Form.Group className="ml-3">
                 {paidWithCard ? (
+                  <Form.Text className="text-muted">*Pay with card.</Form.Text>
+                ) : (
                   <Form.Text className="text-muted">
-                    *Pay with card.
+                    *Pay with points.
                   </Form.Text>
-                ):( <Form.Text className="text-muted">
-                *Pay with points.
-              </Form.Text>)}
+                )}
                 <Form.Check
                   type="switch"
-                  
                   default={paidWithCard}
                   onChange={handlePaidWithCardChange}
                 />
-                
               </Form.Group>
             </Form.Group>
           </div>
@@ -169,11 +168,12 @@ const CheckoutForm = (props) => {
 
           {/*terms and conditions */}
           <Form.Group className="mb-3" id="TermsAndConditions">
-            <Form.Check
-              type="checkbox"
-              label="I accept the Terms and Conditions"
-              required
-            />
+            <Stack direction="horizontal" gap={2}>
+              <Form.Check type="checkbox" required />
+              <Form.Label className="mt-1">
+                I accept the <a href="#">Terms and Conditions</a>
+              </Form.Label>
+            </Stack>
           </Form.Group>
 
           {/*submit form */}
