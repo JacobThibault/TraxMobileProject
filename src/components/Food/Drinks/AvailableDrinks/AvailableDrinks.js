@@ -1,8 +1,7 @@
-import classes from './AvailableDrinks.module.css'
+import classes from "../../../Food/Styles/AvailableItems.module.css";
 import Card from "../../../UI/Card/Card";
 import DrinksItem from "../DrinksItem/DrinksItem";
 import {useEffect, useState} from 'react';
-import Modal from "../../../UI/Modal/Modal";
 
 const AvailableDrinks = (props) => {
 
@@ -40,8 +39,7 @@ const AvailableDrinks = (props) => {
         />
     ));
     return(
-        <Modal onClose={props.onClose}>
-            <div className={classes.drinks}>
+            <div className={classes.menu}>
                 <section>
                     <Card>
                         <ul>
@@ -49,9 +47,7 @@ const AvailableDrinks = (props) => {
                         </ul>
                     </Card>
                 </section>
-                <button onClick={props.onClose}>Close</button>
             </div>
-        </Modal>
     );
 };
 export default AvailableDrinks;

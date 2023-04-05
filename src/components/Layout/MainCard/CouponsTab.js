@@ -2,7 +2,6 @@ import {
   Button,
   Spinner,
   Form,
-  Card,
   Toast,
   ToastContainer,
   Container,
@@ -10,10 +9,12 @@ import {
 import "bootstrap/dist/css/bootstrap.min.css";
 import { useState } from "react";
 import logo from "../Brockp_Gold_Eagles_logo.png";
+import classes from "../../Food/Styles/AvailableItems.module.css";
 
 const CouponsTab = () => {
   //generate a random string code
   const [code, setCode] = useState();
+
   const handleSetCode = () => {
     let result = "";
     const characters =
@@ -80,11 +81,8 @@ const CouponsTab = () => {
 
   return (
     <Container>
-      <Card bg="secondary p-2 mb-2">
-        <h2>Coupon Lottery</h2>
-      </Card>
       <Form.Group>
-        <Form.Label>Get your random coupon code for today!</Form.Label>
+        <Form.Label className="mt-3">Click for a random % off your order!</Form.Label>
       </Form.Group>
 
       <Button
@@ -101,7 +99,9 @@ const CouponsTab = () => {
             <strong className="me-auto">&nbsp;Trax Mobile</strong>
             <small className="text-muted">just now</small>
           </Toast.Header>
-          <Toast.Body className="m-3 text-dark"><h5>You already have a code.</h5></Toast.Body>
+          <Toast.Body className="m-3 text-dark">
+            <h5>You already have a code.</h5>
+          </Toast.Body>
         </Toast>
       </ToastContainer>
 

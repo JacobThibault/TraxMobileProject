@@ -1,18 +1,30 @@
-//import EntreesButton from "../EntreesButton";
-//import React, {Fragment} from "react";
-//import Card from "../../../UI/Card/Card";
-import classes from './AvailableEntrees.module.css'
-import { Button }  from 'react-bootstrap';
+import React, { useState} from "react";
+import classes from "../../../Food/Styles/AvailableItems.module.css";
+import EntreesFormModal from "../EntreesModal/EntreesFormModal";
+import {Button} from 'react-bootstrap';
 
-const AvailableEntreesEntrance = (props) => {
+const AvailableEntreesEntrance = () => {
+    const [entreesIsShown, setEntreesIsShown] = useState(false);
+
+    const showEntreesHandler = () => {
+        setEntreesIsShown(true);
+    };
+
+    const hideEntreesHandler = () => {
+        setEntreesIsShown(false);
+    };
+
+
     return(
-        <section className= {classes.entrees}>
-            
+        <section className={classes.entrees}>
+            {/*show cart if cartIsShown is true */}
+            {entreesIsShown && <EntreesFormModal onClose={hideEntreesHandler} />}
+          
                 <span>
                     <h1>Pick your entrees here!</h1>
-                    <Button variant="success" onClick={props.onShowEntree} className="mt-3">Browse Entrees</Button>
+                    <Button variant="success" onClick={showEntreesHandler}>Choose Entrees</Button>
                 </span>
-           
+            
         </section>
     );
 };

@@ -1,4 +1,4 @@
-import classes from './CombosItem.module.css'
+import classes from '../../Styles/MenuItem.module.css'
 import {useContext} from "react";
 import CombosItemForm from "./CombosItemForm/CombosItemForm";
 import CartContext from "../../../../Store/cart-context";
@@ -18,7 +18,7 @@ const CombosItem = (props) =>{
 
 
     return (
-        <li className={classes.combo}>
+        <li className={classes.entree}>
             <div>
                 <h3>{props.name} </h3>
                 <div className={classes.description}>{props.description}</div>

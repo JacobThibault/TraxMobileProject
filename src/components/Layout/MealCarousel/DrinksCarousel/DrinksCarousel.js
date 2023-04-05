@@ -5,12 +5,12 @@ import burger from "./burger.jpg";
 import chickenquesadilla from "./chickenquesadilla.jpg";
 import chickenfingers from "./chickenfingers.jpeg";
 import chickensanwich from "./chickensanwich.jpg";
-import Card from "../../UI/Card/Card";
-import classes from "../../Food/Entrees/AvailableEntrees/AvailableEntrees.module.css";
-import AvailableEntreesEntrance from "../../Food/Entrees/AvailableEntrees/AvailableEntreesEntrance";
-import AvailableEntrees from "../../Food/Entrees/AvailableEntrees/AvailableEntrees";
+import Card from "../../../UI/Card/Card";
+import classes from "../../../Food/Styles/AvailableItems.module.css";
+import AvailableDrinks from '../../../Food/Drinks/AvailableDrinks/AvailableDrinks';
+import AvailableDrinksEntrance from '../../../Food/Drinks/AvailableDrinks/AvailableDrinksEntrance';
 
-const EntreeCarousel = () => {
+const DrinksCarousel = () => {
   //manage carousel windows
   const [index, setIndex] = useState(0);
   const handleSelect = (selectedIndex, e) => {
@@ -18,15 +18,11 @@ const EntreeCarousel = () => {
   };
 
   //show carousel model
-  const [entreesIsShown, setEntreesIsShown] = useState(false);
-  const handleEntreesHandler = () => {
-    setEntreesIsShown(!entreesIsShown);
+  const [drinkIsShown, setDrinkIsShown] = useState(false);
+  const handleDrinkHandler = () => {
+    setDrinkIsShown(!drinkIsShown);
   };
-  /*
-    const hideEntreesHandler = () => {
-      setEntreesIsShown(false);
-    };
-*/
+
 
   //carousel data
   const data = [
@@ -52,6 +48,7 @@ const EntreeCarousel = () => {
     <>
       <section className={classes.entrees}>
         <Card>
+        <h1 className={classes.title}>Drinks</h1>
           <Carousel activeIndex={index} onSelect={handleSelect}>
             {data.map((slide, i) => {
               return (
@@ -64,8 +61,9 @@ const EntreeCarousel = () => {
                     rounded={true}
                   />
                   <Carousel.Caption>
-                    <AvailableEntreesEntrance
-                      onShowEntree={handleEntreesHandler}
+                    
+                    <AvailableDrinksEntrance
+                      onShowEntree={handleDrinkHandler}
                     />
                     <h5>{slide.description}</h5>
                   </Carousel.Caption>
@@ -76,9 +74,10 @@ const EntreeCarousel = () => {
         </Card>
       </section>
       {/*launch modal */}
-      {entreesIsShown && <AvailableEntrees onClose={handleEntreesHandler} />}
+      {drinkIsShown && <AvailableDrinks onClose={handleDrinkHandler} />}
     </>
+   
   );
 };
 
-export default EntreeCarousel;
+export default DrinksCarousel;

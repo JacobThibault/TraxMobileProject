@@ -1,18 +1,29 @@
-import CombosButton from "../CombosButton";
-import react, {Fragment} from 'react';
+import { useState} from 'react';
 import React from "react";
-import Card from "../../../UI/Card/Card";
-import classes from './AvailableCombos.module.css'
+import classes from "../../../Food/Styles/AvailableItems.module.css";
+import CombosFormModal from "../CombosFormModal/CombosFormModal";
+import {Button} from 'react-bootstrap';
 
 const AvailableCombosEntrance = (props) => {
+    const [combosIsShown, setCombosIsShown] = useState(false);
+
+    const showCombosHandler = () => {
+        setCombosIsShown(true);
+    };
+
+    const hideCombosHandler = () => {
+        setCombosIsShown(false);
+    };
     return(
-        <section className={classes.combos}>
-            <Card>
-                <Fragment>
+        <section className={classes.menu}>
+            {/*show cart if cartIsShown is true */}
+            {combosIsShown && <CombosFormModal onClose={hideCombosHandler} />}
+            
+                <span>
                     <h1>Pick your combos here!</h1>
-                    <CombosButton onClick={props.onShowCombo}/>
-                </Fragment>
-            </Card>
+                    <Button variant="success" className="mb-3" onClick={showCombosHandler}>Choose Combos</Button>
+                </span>
+            
         </section>
     );
 };

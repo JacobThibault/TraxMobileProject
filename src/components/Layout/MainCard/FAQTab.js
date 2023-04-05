@@ -5,10 +5,11 @@ import {
   Button,
   Popover,
   OverlayTrigger,
-  Card
+  Form
 } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import './MainCard.module.css';
+import classes from "../../Food/Styles/AvailableItems.module.css";
 
 const FAQTab = () => {
   const getOrder = (
@@ -59,9 +60,9 @@ const howToPay = (
     <>
     
       <Container>
-      <Card bg="secondary p-2 mb-5">
-        <h2>Frequently Asked Questions</h2>
-      </Card>
+      <Form.Group>
+        <Form.Label className="mt-3">Commonly asked questions:</Form.Label>
+      </Form.Group>
         <Row className="justify-content-md-center, mt-3">
           <Col>
             <OverlayTrigger trigger="focus" placement="top" overlay={getOrder}>

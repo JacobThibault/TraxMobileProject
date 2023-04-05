@@ -1,26 +1,16 @@
 import React, { useState } from "react";
 
 import Header from "./components/Layout/Header";
-//import Meals from "./components/Meals/Meals";
 import Cart from "./components/Cart/Cart";
 import CartProvider from "./Store/CartProvider";
 //import CartToast from "./components/Layout/CartToast";
 //import { ToastContainer } from "react-bootstrap";
 
-//import Card from "../src/components/UI/Card";
-//import classes from "../src/components/Food/Entrees/AvailableEntrees/AvailableEntrees.module.css";
-
-import AvailableCombos from "./components/Food/Combos/AvailableCombos/AvailableCombos";
-//import AvailableEntreesEntrance from "./components/Food/Entrees/AvailableEntrees/AvailableEntreesEntrance";
-//import AvailableEntrees from "./components/Food/Entrees/AvailableEntrees/AvailableEntrees";
-import AvailableSides from "./components/Food/Sides/AvailableSides/AvailableSides";
-import AvailableSidesEntrance from "./components/Food/Sides/AvailableSides/AvailableSidesEntrance";
-import AvailableDrinks from "./components/Food/Drinks/AvailableDrinks/AvailableDrinks";
-import AvailableDrinksEntrance from "./components/Food/Drinks/AvailableDrinks/AvailableDrinksEntrance";
-import AvailableCombosEntrance from "./components/Food/Combos/AvailableCombos/AvailableCombosEntrance";
-
-import EntreeCarousel from "./components/Layout/MealCarousel/EntreeCarousel";
+import EntreeCarousel from "./components/Layout/MealCarousel/EntreeCarousel/EntreeCarousel";
 import Footer from "./components/Layout/Footer";
+import SideCarousel from "./components/Layout/MealCarousel/SideCarousel/SideCarousel";
+import DrinksCarousel from './components/Layout/MealCarousel/DrinksCarousel/DrinksCarousel';
+import CombosCarousel from "./components/Layout/MealCarousel/CombosCarousel/CombosCarousel";
 
 function App() {
   //show cart
@@ -32,33 +22,6 @@ function App() {
     setCartIsShown(false);
   };
 
-  //show sides
-  const [sidesIsShown, setSidesIsShown] = useState(false);
-  const showSidesHandler = () => {
-    setSidesIsShown(true);
-  };
-  const hideSidesHandler = () => {
-    setSidesIsShown(false);
-  };
-
-  //show drinks
-  const [drinksIsShown, setDrinksIsShown] = useState(false);
-  const showDrinksHandler = () => {
-    setDrinksIsShown(true);
-  };
-  const hideDrinksHandler = () => {
-    setDrinksIsShown(false);
-  };
-
-  //show combos
-  const [combosIsShown, setCombosIsShown] = useState(false);
-  const showCombosHandler = () => {
-    setCombosIsShown(true);
-  };
-  const hideCombosHandler = () => {
-    setCombosIsShown(false);
-  };
-
   return (
     <>
       {/*toast appears for each item added to cart 
@@ -68,6 +31,7 @@ function App() {
         <CartToast message="Cheese Burger"/>
       </ToastContainer>
       */}
+
 
       <CartProvider>
         {/*show cart if cartIsShown is true */}
@@ -82,16 +46,14 @@ function App() {
           <EntreeCarousel />
 
           <div id={"sides"} className={"anchor"} />
-          {sidesIsShown && <AvailableSides onClose={hideSidesHandler} />}
-          <AvailableSidesEntrance onShowSide={showSidesHandler} />
+          <SideCarousel/>
 
           <div id={"drinks"} className={"anchor"} />
-          {drinksIsShown && <AvailableDrinks onClose={hideDrinksHandler} />}
-          <AvailableDrinksEntrance onShowDrink={showDrinksHandler} />
+          <DrinksCarousel/>
 
           <div id={"combos"} className={"anchor"} />
-          {combosIsShown && <AvailableCombos onClose={hideCombosHandler} />}
-          <AvailableCombosEntrance onShowCombo={showCombosHandler} />
+          <CombosCarousel/>
+
         </main>
       </CartProvider>
       

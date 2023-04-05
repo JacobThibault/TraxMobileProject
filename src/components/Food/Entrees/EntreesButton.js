@@ -1,12 +1,12 @@
-import classes from './EntreesButton.module.css';
+import {Button} from 'react-bootstrap';
 const EntreesButton = props => {
 
     return(
-        <div className={classes.button}>
-            <button onClick={props.onClick}>
-                <span> > </span>
-            </button>
-        </div>
+        
+            <Button variant="success" onClick={props.onClick}>
+                <span> Choose Entrees </span>
+            </Button>
+       
     );
 };
 export default EntreesButton;

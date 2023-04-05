@@ -1,8 +1,7 @@
-import classes from './AvailableSides.module.css'
+import classes from "../../../Food/Styles/AvailableItems.module.css";
 import Card from "../../../UI/Card/Card";
 import SidesItem from "../SidesItem/SidesItem";
 import {useEffect, useState} from 'react';
-import Modal from "../../../UI/Modal";
 
 const AvailableSides = (props) => {
 
@@ -40,18 +39,15 @@ const AvailableSides = (props) => {
         />
     ));
     return(
-        <Modal onClose={props.onClose}>
-            <div className={classes.sides}>
-                <section className={classes.sides}>
+            <div className={classes.menu}>
+                <section>
                     <Card>
                         <ul>
                             {sideList}
                         </ul>
                     </Card>
                 </section>
-                <button onClick={props.onClose}> Close</button>
             </div>
-        </Modal>
     );
 };
 export default AvailableSides;

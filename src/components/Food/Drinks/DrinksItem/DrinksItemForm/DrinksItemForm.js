@@ -1,4 +1,4 @@
-import classes from './DrinksItemForm.module.css';
+import classes from '../../../Styles/ItemForm.module.css';
 import Input from "../../../../UI/Input/Input";
 import { useRef, useState } from 'react';
 

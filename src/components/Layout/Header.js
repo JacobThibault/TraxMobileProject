@@ -16,6 +16,7 @@ import CouponsTab from "./MainCard/CouponsTab";
 import FAQTab from "./MainCard/FAQTab";
 import styles from "./MainCard/MainCard.module.css";
 import logo from "./Brockp_Gold_Eagles_logo.png";
+import tab from "../Food/Styles/AvailableItems.module.css";
 
 const Header = (props) => {
   //default card is home
@@ -40,6 +41,12 @@ const Header = (props) => {
     }
   };
 
+  const dropdown = () => {
+    return <>
+    
+    </>
+  };
+
   return (
     <>
       <header className={classes.header}>
@@ -55,7 +62,7 @@ const Header = (props) => {
           <Container>
             <Nav className="mx-auto">
               <Stack direction="horizontal" gap={5}>
-              <Badge bg="secondary">
+                <Badge bg="secondary">
                   <NavDropdown title={nav}>
                     <NavDropdown.Item onClick={() => handleSetNav("Home")}>
                       Home
@@ -71,10 +78,18 @@ const Header = (props) => {
                     </NavDropdown.Item>
                   </NavDropdown>
                 </Badge>
-                <Nav.Link href="#entrees" className="text-light">Entrees</Nav.Link>
-                <Nav.Link href="#sides" className="text-light">Sides</Nav.Link>
-                <Nav.Link href="#drinks" className="text-light">Drinks</Nav.Link>
-                <Nav.Link href="#combos" className="text-light">Combos</Nav.Link>
+                <Nav.Link href="#entrees" className="text-light">
+                  Entrees
+                </Nav.Link>
+                <Nav.Link href="#sides" className="text-light">
+                  Sides
+                </Nav.Link>
+                <Nav.Link href="#drinks" className="text-light">
+                  Drinks
+                </Nav.Link>
+                <Nav.Link href="#combos" className="text-light">
+                  Combos
+                </Nav.Link>
               </Stack>
             </Nav>
           </Container>
@@ -87,7 +102,13 @@ const Header = (props) => {
       </div>
 
       {/*show different main cards */}
-      <section className={styles.summary}>{showCard(nav)}</section>
+      <section className={styles.summary}>
+        
+        <Container>
+          <h1 className={tab.title}>{nav}</h1>
+          {showCard(nav)}
+        </Container>
+      </section>
     </>
   );
 };

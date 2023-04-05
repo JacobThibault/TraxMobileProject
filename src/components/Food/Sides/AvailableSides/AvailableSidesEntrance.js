@@ -1,18 +1,29 @@
-import react, {Fragment} from 'react';
-import SidesButton from "../SidesButton";
+import {useState} from 'react';
 import React from "react";
-import Card from "../../../UI/Card/Card";
-import classes from './AvailableSides.module.css'
+import classes from "../../../Food/Styles/AvailableItems.module.css";
+import SidesFormModal from "../SidesModal/SidesFormModal";
+import {Button} from 'react-bootstrap';
 
-const AvailableSidesEntrance = (props) => {
+const AvailableSidesEntrance = () => {
+    const [sidesIsShown, setSidesIsShown] = useState(false);
+
+    const showSidesHandler = () => {
+        setSidesIsShown(true);
+    };
+
+    const hideSidesHandler = () => {
+        setSidesIsShown(false);
+    };
     return(
-        <section className={classes.sides}>
-            <Card>
-                <Fragment>
+        <section className={classes.menu}>
+            {/*show cart if cartIsShown is true */}
+            {sidesIsShown && <SidesFormModal onClose={hideSidesHandler} />}
+            
+                <span>
                     <h1>Pick your sides here!</h1>
-                    <SidesButton onClick={props.onShowSide}/>
-                </Fragment>
-            </Card>
+                    <Button variant="success" className="mb-3" onClick={showSidesHandler}>Choose Sides</Button>
+                </span>
+            
         </section>
     );
 };

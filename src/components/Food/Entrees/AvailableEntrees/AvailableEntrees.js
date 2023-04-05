@@ -1,10 +1,7 @@
-import classes from './AvailableEntrees.module.css'
+import classes from "../../../Food/Styles/AvailableItems.module.css";
 import Card from "../../../UI/Card/Card";
 import EntreesItem from "../EntreesItem/EntreesItem";
 import {useEffect, useState} from 'react';
-import Modal from "../../../UI/Modal/Modal";
-
-import {Button} from 'react-bootstrap';
 
 const AvailableEntrees = (props) => {
 
@@ -42,8 +39,7 @@ const AvailableEntrees = (props) => {
         />
     ));
     return(
-        <Modal onClose={props.onClose}>
-            <div className={classes.entrees}>
+            <div className={classes.menu}>
                 <section>
                     <Card>
                         <ul>
@@ -51,10 +47,7 @@ const AvailableEntrees = (props) => {
                         </ul>
                     </Card>
                 </section>
-                <br/>
-                <Button variant="success" onClick={props.onClose}> Close </Button>
             </div>
-        </Modal>
     );
 };
 export default AvailableEntrees;

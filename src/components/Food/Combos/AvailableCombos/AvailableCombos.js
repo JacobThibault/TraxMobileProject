@@ -1,10 +1,9 @@
-import classes from './AvailableCombos.module.css'
+import classes from "../../../Food/Styles/AvailableItems.module.css";
 import Card from "../../../UI/Card/Card";
 import CombosItem from "../CombosItem/CombosItem";
 import {useEffect, useState} from 'react';
-import Modal from "../../../UI/Modal/Modal";
 
-const AvailableCombos = (props) => {
+const AvailableCombos = () => {
 
     const [retrievedComboList, setRetrievedComboList] = useState([]);
 
@@ -40,8 +39,7 @@ const AvailableCombos = (props) => {
         />
     ));
     return(
-        <Modal onClose={props.onClose}>
-            <div className={classes.combos}>
+            <div className={classes.menu}>
                 <section>
                     <Card>
                         <ul>
@@ -49,9 +47,7 @@ const AvailableCombos = (props) => {
                         </ul>
                     </Card>
                 </section>
-                <button onClick={props.onClose}>Close</button>
             </div>
-        </Modal>
     );
 };
 export default AvailableCombos;

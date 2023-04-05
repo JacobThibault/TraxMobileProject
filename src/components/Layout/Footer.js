@@ -2,7 +2,7 @@ import { Navbar, Nav, Container, Stack } from "react-bootstrap";
 
 const Footer = () => {
   return (
-    <Navbar bg="dark" variant="dark" static="bottom">
+    <Navbar bg="dark" variant="dark" static="bottom" className="mt-5">
       <Container>
         <Nav className="mx-auto m-3">
           <Container>

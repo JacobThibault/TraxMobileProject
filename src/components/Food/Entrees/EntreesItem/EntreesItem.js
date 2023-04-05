@@ -1,4 +1,4 @@
-import classes from './EntreesItem.module.css'
+import classes from '../../Styles/MenuItem.module.css'
 import {useContext} from "react";
 import EntreesItemForm from "./EntreesItemForm/EntreesItemForm";
 import CartContext from "../../../../Store/cart-context";

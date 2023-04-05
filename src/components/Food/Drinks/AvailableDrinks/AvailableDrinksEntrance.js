@@ -1,18 +1,29 @@
-import DrinksButton from "../DrinksButton";
-import react, {Fragment} from 'react';
+import {useState} from 'react';
 import React from "react";
-import Card from "../../../UI/Card/Card";
-import classes from './AvailableDrinks.module.css'
+import classes from "../../../Food/Styles/AvailableItems.module.css";
+import DrinksFormModal from "../DrinksModal/DrinksFormModal";
+import {Button} from 'react-bootstrap';
 
-const AvailableDrinksEntrance = (props) => {
+const AvailableDrinksEntrance = () => {
+    const [drinksIsShown, setDrinksIsShown] = useState(false);
+
+    const showDrinksHandler = () => {
+        setDrinksIsShown(true);
+    };
+
+    const hideDrinksHandler = () => {
+        setDrinksIsShown(false);
+    };
     return(
-        <section className={classes.drinks}>
-            <Card>
-                <Fragment>
+        <section className={classes.menu}>
+            {/*show cart if cartIsShown is true */}
+            {drinksIsShown && <DrinksFormModal onClose={hideDrinksHandler} />}
+           
+                <span>
                     <h1>Pick your drinks here!</h1>
-                    <DrinksButton onClick={props.onShowDrink}/>
-                </Fragment>
-            </Card>
+                    <Button variant="success" className="mb-3" onClick={showDrinksHandler}>Choose Drinks</Button>
+                </span>
+           
         </section>
     );
 };

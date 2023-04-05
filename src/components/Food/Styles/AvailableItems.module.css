@@ -1,0 +1,54 @@
+.entrees {
+    max-width: 60rem;
+    width: 90%;
+    margin: 1rem auto;
+    animation: entrees-appear 1s ease-out forwards;
+}
+
+.menu {
+    animation: entrees-appear 1s ease-out forwards;
+    max-height: 40rem;
+    overflow: auto;
+}
+
+.entrees ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.title {
+    text-align: center;
+    background-color: #00533E;
+    color: white;
+    padding: .5rem;
+    border-radius: 10px;
+}
+
+.tab {
+    text-align: center;
+    background-color: #00533E;
+    color: white;
+    padding: .5rem;
+    border-radius: 10px;
+}
+
+.tabContent {
+    margin-top: 2rem;
+}
+
+.Nav {
+    color: white;
+}
+
+@keyframes entrees-appear {
+    from {
+        opacity: 0;
+        transform: translateY(3rem);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
