@@ -9,7 +9,6 @@ import {
 } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./MainCard.module.css";
-import classes from "../../Food/Styles/AvailableItems.module.css";
 
 const FAQTab = () => {
   const getOrder = (

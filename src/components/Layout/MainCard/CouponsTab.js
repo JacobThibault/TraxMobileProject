@@ -9,7 +9,6 @@ import {
 import "bootstrap/dist/css/bootstrap.min.css";
 import { useState } from "react";
 import logo from "../Brockp_Gold_Eagles_logo.png";
-import classes from "../../Food/Styles/AvailableItems.module.css";
 
 const CouponsTab = () => {
   //generate a random string code

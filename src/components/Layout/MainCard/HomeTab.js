@@ -1,4 +1,3 @@
-import { Container } from "react-bootstrap";
 import classes from "../../Food/Styles/AvailableItems.module.css";
 
 const HomeTab = () => {

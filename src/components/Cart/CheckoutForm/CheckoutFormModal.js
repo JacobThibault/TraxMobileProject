@@ -171,7 +171,7 @@ const CheckoutForm = (props) => {
             <Stack direction="horizontal" gap={2}>
               <Form.Check type="checkbox" required />
               <Form.Label className="mt-1">
-                I accept the <a href="#">Terms and Conditions</a>
+                I accept the <a href="https://basc1.org/">Terms and Conditions</a>
               </Form.Label>
             </Stack>
           </Form.Group>
