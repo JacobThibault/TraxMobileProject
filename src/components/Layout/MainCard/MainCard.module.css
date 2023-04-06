@@ -20,3 +20,13 @@
   margin-top: 0;
 }
 
+.backdrop {
+  max-width: 100rem;
+  width: 90%;
+  margin: auto;
+  position: relative;
+  background-color: #fcfbf9;
+  box-shadow: 0 1px 50px 1px rgba(0, 0, 0, 0.05);
+  height: 100%;
+}
+

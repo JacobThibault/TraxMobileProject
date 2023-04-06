@@ -1,10 +1,12 @@
 import { useState } from "react";
 import { Carousel, Image } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
-import burger from "./burger.jpg";
-import chickenquesadilla from "./chickenquesadilla.jpg";
+
+import pizza from "./pizza.webp";
 import chickenfingers from "./chickenfingers.jpeg";
 import chickensanwich from "./chickensanwich.jpg";
+import wings from './wings.jpg';
+
 import Card from "../../../UI/Card/Card";
 import classes from "../../../Food/Styles/AvailableItems.module.css";
 import AvailableCombos from "../../../Food/Combos/AvailableCombos/AvailableCombos";
@@ -28,19 +30,19 @@ const CombosCarousel = () => {
   const data = [
     {
       image: chickensanwich,
-      description: "Chicken Sandwich",
-    },
-    {
-      image: burger,
-      description: "Cheese Burger",
+      description: "Chicken Sandwich Combo Meal",
     },
     {
       image: chickenfingers,
-      description: "Five Hand breaded Chicken Fingers",
+      description: "Five Hand Breaded Chicken Fingers Combo Meal",
     },
     {
-      image: chickenquesadilla,
-      description: "Chicken Quesadilla",
+      image: pizza,
+      description: "Oven Cooked Pizza",
+    },
+    {
+      image: wings,
+      description: "Dozen Fried Hot Wings",
     },
   ];
 

@@ -1,10 +1,12 @@
 import { useState } from "react";
 import { Carousel, Image } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
-import burger from "./burger.jpg";
-import chickenquesadilla from "./chickenquesadilla.jpg";
-import chickenfingers from "./chickenfingers.jpeg";
-import chickensanwich from "./chickensanwich.jpg";
+
+import tatertots from './tatertots.jpg';
+import curlyfries from './curlyfries.webp';
+import onionrings from './onionrings.jpg';
+import fries from './fries.webp';
+
 import Card from "../../../UI/Card/Card";
 import classes from "../../../Food/Styles/AvailableItems.module.css";
 import AvailableSides from "../../../Food/Sides/AvailableSides/AvailableSides";
@@ -27,20 +29,20 @@ const SideCarousel = () => {
   //carousel data
   const data = [
     {
-      image: chickensanwich,
-      description: "Chicken Sandwich",
+      image: fries,
+      description: "Fries",
     },
     {
-      image: burger,
-      description: "Cheese Burger",
+      image: onionrings,
+      description: "Onion Rings",
     },
     {
-      image: chickenfingers,
-      description: "Five Hand breaded Chicken Fingers",
+      image: curlyfries,
+      description: "Curly Fries",
     },
     {
-      image: chickenquesadilla,
-      description: "Chicken Quesadilla",
+      image: tatertots,
+      description: "Tater Tots",
     },
   ];
 

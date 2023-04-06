@@ -9,7 +9,7 @@ import CartProvider from "./Store/CartProvider";
 import EntreeCarousel from "./components/Layout/MealCarousel/EntreeCarousel/EntreeCarousel";
 import Footer from "./components/Layout/Footer";
 import SideCarousel from "./components/Layout/MealCarousel/SideCarousel/SideCarousel";
-import DrinksCarousel from './components/Layout/MealCarousel/DrinksCarousel/DrinksCarousel';
+import DrinksCarousel from "./components/Layout/MealCarousel/DrinksCarousel/DrinksCarousel";
 import CombosCarousel from "./components/Layout/MealCarousel/CombosCarousel/CombosCarousel";
 
 function App() {
@@ -29,7 +29,6 @@ function App() {
     console.log(code);
   };
 
-
   return (
     <>
       {/*toast appears for each item added to cart 
@@ -40,31 +39,25 @@ function App() {
       </ToastContainer>
       */}
 
-
       <CartProvider>
         {/*show cart if cartIsShown is true */}
-        {cartIsShown && <Cart onClose={hideCartHandler} code={code}/>}
+        {cartIsShown && <Cart onClose={hideCartHandler} code={code} />}
         <div id={"home"} className={"anchor"} />
-        <Header onShowCart={showCartHandler} code={handleSetCode}/>
-        <main>
-          {/* <Meals /> */}
+        <Header onShowCart={showCartHandler} code={handleSetCode} />
+        {/*meal carousel */}
+        <div id={"entrees"} className={"anchor"} />
+        <EntreeCarousel />
 
-          {/*meal carousel */}
-          <div id={"entrees"} className={"anchor"} />
-          <EntreeCarousel />
+        <div id={"sides"} className={"anchor"} />
+        <SideCarousel />
 
-          <div id={"sides"} className={"anchor"} />
-          <SideCarousel/>
+        <div id={"drinks"} className={"anchor"} />
+        <DrinksCarousel />
 
-          <div id={"drinks"} className={"anchor"} />
-          <DrinksCarousel/>
-
-          <div id={"combos"} className={"anchor"} />
-          <CombosCarousel/>
-
-        </main>
+        <div id={"combos"} className={"anchor"} />
+        <CombosCarousel />
       </CartProvider>
-      
+
       {/*footer at bottom */}
       <Footer />
     </>

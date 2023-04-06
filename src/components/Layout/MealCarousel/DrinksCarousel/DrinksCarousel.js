@@ -1,10 +1,9 @@
 import { useState } from "react";
 import { Carousel, Image } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
-import burger from "./burger.jpg";
-import chickenquesadilla from "./chickenquesadilla.jpg";
-import chickenfingers from "./chickenfingers.jpeg";
-import chickensanwich from "./chickensanwich.jpg";
+
+import soda from './soda.jpg';
+
 import Card from "../../../UI/Card/Card";
 import classes from "../../../Food/Styles/AvailableItems.module.css";
 import AvailableDrinks from '../../../Food/Drinks/AvailableDrinks/AvailableDrinks';
@@ -27,20 +26,20 @@ const DrinksCarousel = () => {
   //carousel data
   const data = [
     {
-      image: chickensanwich,
-      description: "Chicken Sandwich",
+      image: soda,
+      description: "Dr Pepper",
     },
     {
-      image: burger,
-      description: "Cheese Burger",
+      image: soda,
+      description: "Coke",
     },
     {
-      image: chickenfingers,
-      description: "Five Hand breaded Chicken Fingers",
+      image: soda,
+      description: "Mountain Dew",
     },
     {
-      image: chickenquesadilla,
-      description: "Chicken Quesadilla",
+      image: soda,
+      description: "Pepsi",
     },
   ];
 

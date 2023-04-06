@@ -12,7 +12,6 @@ import logo from "./Brockp_Gold_Eagles_logo.png";
 import tab from "../Food/Styles/AvailableItems.module.css";
 import CardPagination from "./MainCard/CardPagination";
 
-
 const Header = (props) => {
   //default card is home
   const [nav, setNav] = useState("Home");
@@ -28,7 +27,7 @@ const Header = (props) => {
       case "About":
         return <AboutTab />;
       case "Coupons":
-        return <CouponsTab code={sendCoupon}/>;
+        return <CouponsTab code={sendCoupon} />;
       case "FAQ":
         return <FAQTab />;
       default:
@@ -92,17 +91,12 @@ const Header = (props) => {
 
       {/*show different main cards */}
       <section className={styles.summary}>
-       
-          <h1 className={tab.title}>{nav}</h1>
-          {showCard(nav)}
+        <h1 className={tab.title}>{nav}</h1>
+        {showCard(nav)}
 
-          {/*nav buttons */}
-          
-            <CardPagination navSet={handleSetNav} nav={nav} />
-         
-       
+        {/*nav buttons */}
+        <CardPagination navSet={handleSetNav} nav={nav} />
       </section>
-      
     </>
   );
 };
