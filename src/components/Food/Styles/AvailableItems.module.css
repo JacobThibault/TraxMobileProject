@@ -2,12 +2,11 @@
     max-width: 60rem;
     width: 90%;
     margin: 1rem auto;
-    animation: entrees-appear 1s ease-out forwards;
-    
+    animation: appear 1s ease-out forwards;
 }
 
 .menu {
-    animation: entrees-appear 1s ease-out forwards;
+    animation: appear 1s ease-out forwards;
     max-height: 40rem;
     overflow: auto;
 }
@@ -42,7 +41,7 @@
     color: white;
 }
 
-@keyframes entrees-appear {
+@keyframes appear {
     from {
         opacity: 0;
         transform: translateY(3rem);
