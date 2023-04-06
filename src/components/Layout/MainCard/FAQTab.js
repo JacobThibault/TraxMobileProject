@@ -8,7 +8,6 @@ import {
   Form,
 } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "./MainCard.module.css";
 
 const FAQTab = () => {
   const getOrder = (
@@ -52,8 +51,8 @@ const FAQTab = () => {
       <Popover.Header as="h3">Coupon Lottery</Popover.Header>
       <Popover.Body>
         The coupon lottery is a <strong>daily coupon give-away </strong>
-        where you have the chance to get a random{" "}
-        <strong>free coupon code </strong>
+        where you have the chance to win a
+        <strong> random % off your order </strong>
         to use at checkout!
       </Popover.Body>
     </Popover>
@@ -94,7 +93,7 @@ const FAQTab = () => {
           <Col>
             <OverlayTrigger trigger="focus" placement="top" overlay={lottery}>
               <Button variant="success" className="p-3">
-                What is the coupon lottery?
+                What's with the coupons?
               </Button>
             </OverlayTrigger>
           </Col>

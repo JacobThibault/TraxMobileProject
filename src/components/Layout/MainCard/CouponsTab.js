@@ -10,7 +10,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { useState } from "react";
 import logo from "../Brockp_Gold_Eagles_logo.png";
 
-const CouponsTab = () => {
+const CouponsTab = (props) => {
   //generate a random string code
   const [code, setCode] = useState();
 
@@ -29,9 +29,9 @@ const CouponsTab = () => {
   };
 
   //change color of button
-  const [couponFlag, setCouponFlag] = useState("success");
+  const [couponFlag, setCouponFlag] = useState(true);
   const handleSetCouponFlag = () => {
-    return setCouponFlag("danger");
+    return setCouponFlag(false);
   };
 
   //toast variables
@@ -42,7 +42,7 @@ const CouponsTab = () => {
   const [loading, setLoading] = useState(false);
   const handleLoading = () => {
     //only generate once
-    if (couponFlag !== "danger") {
+    if (couponFlag) {
       setLoading(!loading);
     } else {
       //show warning toast
@@ -78,19 +78,44 @@ const CouponsTab = () => {
     else return <>Generate Coupon</>;
   };
 
+  //send code to cart
+  const codeToCart = () => {
+    props.code({ code });
+    setShow(!show);
+    toggleShowToast();
+  };
+
+  const [show, setShow] = useState(false);
+
   return (
     <Container>
       <Form.Group>
-        <Form.Label className="mt-3">Click for a random % off your order!</Form.Label>
+        <Form.Label className="mt-3">
+          Click for a random % off your order!
+        </Form.Label>
       </Form.Group>
 
       <Button
-        variant={couponFlag}
+        variant="success"
         onClick={handleLoading}
         className="mt-3 mb-2"
+        disabled={!couponFlag ? true : false}
       >
         {showSpinner()}
       </Button>
+
+      <Form.Group>
+        <Form.Label>
+          Coupon Code:
+          <Form.Control
+            value={code}
+            className="mt-2"
+            onClick={toggleShowToast}
+            readOnly
+          />
+        </Form.Label>
+      </Form.Group>
+
       <ToastContainer position="middle-center">
         <Toast show={showToast} onClose={toggleShowToast}>
           <Toast.Header>
@@ -99,17 +124,13 @@ const CouponsTab = () => {
             <small className="text-muted">just now</small>
           </Toast.Header>
           <Toast.Body className="m-3 text-dark">
-            <h5>You already have a code.</h5>
+            <h5>Apply Coupon?</h5>
+            <Button variant="success" className="mt-1 mb-4" onClick={codeToCart}>
+              Apply
+            </Button>
           </Toast.Body>
         </Toast>
       </ToastContainer>
-
-      <Form.Group>
-        <Form.Label>
-          Coupon Code:
-          <Form.Control value={code} disabled className="mt-2" />{" "}
-        </Form.Label>
-      </Form.Group>
     </Container>
   );
 };

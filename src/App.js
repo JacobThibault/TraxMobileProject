@@ -22,6 +22,14 @@ function App() {
     setCartIsShown(false);
   };
 
+  //handle coupon code
+  const [code, setCode] = useState("");
+  const handleSetCode = (value) => {
+    setCode(value.code);
+    console.log(code);
+  };
+
+
   return (
     <>
       {/*toast appears for each item added to cart 
@@ -35,9 +43,9 @@ function App() {
 
       <CartProvider>
         {/*show cart if cartIsShown is true */}
-        {cartIsShown && <Cart onClose={hideCartHandler} />}
+        {cartIsShown && <Cart onClose={hideCartHandler} code={code}/>}
         <div id={"home"} className={"anchor"} />
-        <Header onShowCart={showCartHandler} />
+        <Header onShowCart={showCartHandler} code={handleSetCode}/>
         <main>
           {/* <Meals /> */}
 

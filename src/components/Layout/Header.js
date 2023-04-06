@@ -2,14 +2,7 @@ import { useState, useEffect } from "react";
 import HeaderCartButton from "./HeaderCartButton";
 import mealsImage from "../../assets/meals.jpg";
 import classes from "./Header.module.css";
-import {
-  Container,
-  Nav,
-  Navbar,
-  //NavDropdown,
-  Stack,
-  Pagination,
-} from "react-bootstrap";
+import { Container, Nav, Navbar, Stack } from "react-bootstrap";
 import HomeTab from "./MainCard/HomeTab";
 import AboutTab from "./MainCard/AboutTab";
 import CouponsTab from "./MainCard/CouponsTab";
@@ -17,6 +10,8 @@ import FAQTab from "./MainCard/FAQTab";
 import styles from "./MainCard/MainCard.module.css";
 import logo from "./Brockp_Gold_Eagles_logo.png";
 import tab from "../Food/Styles/AvailableItems.module.css";
+import CardPagination from "./MainCard/CardPagination";
+
 
 const Header = (props) => {
   //default card is home
@@ -33,12 +28,17 @@ const Header = (props) => {
       case "About":
         return <AboutTab />;
       case "Coupons":
-        return <CouponsTab />;
+        return <CouponsTab code={sendCoupon}/>;
       case "FAQ":
         return <FAQTab />;
       default:
         <HomeTab />;
     }
+  };
+
+  //send the coupon to cart
+  const sendCoupon = (code) => {
+    props.code(code);
   };
 
   useEffect(() => {
@@ -67,22 +67,6 @@ const Header = (props) => {
           <Container>
             <Nav className="mx-auto">
               <Stack direction="horizontal" gap={5}>
-                {/**                 
-                <NavDropdown title={nav}>
-                  <NavDropdown.Item onClick={() => handleSetNav("Home")}>
-                    Home
-                  </NavDropdown.Item>
-                  <NavDropdown.Item onClick={() => handleSetNav("About")}>
-                    About
-                  </NavDropdown.Item>
-                  <NavDropdown.Item onClick={() => handleSetNav("Coupons")}>
-                    Coupons
-                  </NavDropdown.Item>
-                  <NavDropdown.Item onClick={() => handleSetNav("FAQ")}>
-                    FAQ
-                  </NavDropdown.Item>
-                </NavDropdown>
-*/}
                 <Nav.Link href="#entrees" className="text-light">
                   Entrees
                 </Nav.Link>
@@ -108,53 +92,17 @@ const Header = (props) => {
 
       {/*show different main cards */}
       <section className={styles.summary}>
-        <Container>
+       
           <h1 className={tab.title}>{nav}</h1>
           {showCard(nav)}
 
           {/*nav buttons */}
-          <Pagination size="sm" className="d-flex justify-content-center mt-4">
-            <Pagination.Prev
-              onClick={() => {
-                if (nav === "Home") {
-                  handleSetNav("FAQ");
-                } else if (nav === "About") {
-                  handleSetNav("Home");
-                } else if (nav === "Coupons") {
-                  handleSetNav("About");
-                } else if (nav === "FAQ") {
-                  handleSetNav("Coupons");
-                }
-              }}
-            />
-            <Pagination.Item onClick={() => handleSetNav("Home")}>
-              {"Home"}
-            </Pagination.Item>
-            <Pagination.Item onClick={() => handleSetNav("About")}>
-              {"About"}
-            </Pagination.Item>
-            <Pagination.Item onClick={() => handleSetNav("Coupons")}>
-              {"Coupons"}
-            </Pagination.Item>
-            <Pagination.Item onClick={() => handleSetNav("FAQ")}>
-              {"FAQ"}
-            </Pagination.Item>
-            <Pagination.Next
-              onClick={() => {
-                if (nav === "Home") {
-                  handleSetNav("About");
-                } else if (nav === "About") {
-                  handleSetNav("Coupons");
-                } else if (nav === "Coupons") {
-                  handleSetNav("FAQ");
-                } else if (nav === "FAQ") {
-                  handleSetNav("Home");
-                }
-              }}
-            />
-          </Pagination>
-        </Container>
+          
+            <CardPagination navSet={handleSetNav} nav={nav} />
+         
+       
       </section>
+      
     </>
   );
 };

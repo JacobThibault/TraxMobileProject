@@ -25,6 +25,9 @@ const CheckoutForm = (props) => {
     props.onClose();
   };
 
+  //handle coupon code
+  const code = props.code;
+
   //form email
   const [email, setEmail] = useState("@brockport.edu");
   const handleEmailChange = (event) => {
@@ -69,7 +72,8 @@ const CheckoutForm = (props) => {
     props.onPayment(orderData);
   };
 
-  return (
+  return (<>
+    
     <Modal
       show={show}
       onHide={handleClose}
@@ -79,6 +83,7 @@ const CheckoutForm = (props) => {
       <Modal.Header closeButton>
         <Modal.Title>Payment</Modal.Title>
       </Modal.Header>
+     
       <Modal.Body>
         <Form className={forms.form} onSubmit={handleSubmit}>
           <div>
@@ -157,9 +162,11 @@ const CheckoutForm = (props) => {
           )}
 
           {/*coupon code */}
+          
+
           <Form.Group className="mb-3" controlId="CouponCode">
             <Form.Label>Coupon Code (optional)</Form.Label>
-            <Form.Control />
+            <Form.Control value={code} readOnly/>
             <Form.Text className="text-muted">*One coupon per order.</Form.Text>
           </Form.Group>
 
@@ -194,6 +201,7 @@ const CheckoutForm = (props) => {
         </Button>
       </Modal.Footer>
     </Modal>
+    </>
   );
 };
 

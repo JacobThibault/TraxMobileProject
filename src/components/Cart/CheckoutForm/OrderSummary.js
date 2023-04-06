@@ -30,6 +30,11 @@ const OrderSummary = () => {
         <span>Sales tax</span>
         <span>{salesTaxString}</span>
       </div>
+
+      <div className={forms.salesTax}>
+        <span>Discount</span>
+        <span>-$0.00</span>
+      </div>
       
       <div className={forms.total}>
         <span>Total</span>

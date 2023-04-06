@@ -5,6 +5,10 @@ import OrderReceiptModal from "./OrderReceipt/OrderReceiptModal";
 import CartReview from "./CartReview";
 
 const Cart = (props) => {
+  
+  //coupon code
+  let code = props.code;
+  
   //close modal
   const handleClose = () => {
     //open and close in App.js
@@ -68,14 +72,15 @@ const Cart = (props) => {
     switch (checkoutIndex) {
       //cart review
       case 0:
-        return <CartReview onClose={handleClose} onCheckout={nextStage} />;
+        return <CartReview onClose={handleClose} onCheckout={nextStage} code={code}/>;
 
       //payment form modal
       case 1:
-        return (
+        return (     
           <CheckoutFormModal
             onPayment={handleCreateReceipt}
             onClose={handleClose}
+            code={code}
           />
         );
 
@@ -99,6 +104,7 @@ const Cart = (props) => {
 
   return (
     <div>
+      
       {/*flip through cart modals */}
       {renderSwitch(checkoutIndex)}
     </div>

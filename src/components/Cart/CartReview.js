@@ -6,6 +6,9 @@ import CartItem from "./CartItem";
 import forms from "./CheckoutForm/CheckoutForm.module.css";
 
 const CartReview = (props) => {
+  
+  //const code = props.code;
+  
   //modal
   const [show, setShow] = useState(true);
 
