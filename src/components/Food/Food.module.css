@@ -1,0 +1,87 @@
+.entrees {
+  max-width: 60rem;
+  width: 90%;
+  margin: 1rem auto;
+  animation: appear 1s ease-out forwards;
+}
+
+.title {
+  text-align: center;
+  background-color: #00533e;
+  color: white;
+  padding: 0.5rem;
+  border-radius: 10px;
+}
+
+.menu {
+  animation: appear 1s ease-out forwards;
+  max-height: 40rem;
+  overflow: auto;
+}
+
+.entrees ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.form {
+  text-align: right;
+}
+
+.form button {
+  font: inherit;
+  cursor: pointer;
+  background-color: #577935;
+  border: 1px solid #577935;
+  color: white;
+  padding: 0.25rem 2rem;
+  border-radius: 20px;
+  font-weight: bold;
+}
+
+.form button:hover,
+.form button:active {
+  background-color: #445e2a;
+  border-color: #445e2a;
+}
+
+.modalSize {
+    width: 35rem;
+    max-width: 35rem;
+}
+
+.food {
+    display: flex;
+    justify-content: space-between;
+    margin: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #ccc;
+}
+
+.food h3 {
+    margin: 0 0 0.25rem 0;
+}
+
+.description {
+    font-style: italic;
+}
+
+.price {
+    margin-top: 0.25rem;
+    font-weight: bold;
+    color: #577935;
+    font-size: 1.25rem;
+}
+
+@keyframes appear {
+  from {
+    opacity: 0;
+    transform: translateY(3rem);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

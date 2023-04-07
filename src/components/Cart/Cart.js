@@ -6,8 +6,8 @@ import CartReview from "./CartReview";
 
 const Cart = (props) => {
   
-  //coupon code
-  let code = props.code;
+  //discount
+  let discount = props.discount;
   
   //close modal
   const handleClose = () => {
@@ -72,7 +72,7 @@ const Cart = (props) => {
     switch (checkoutIndex) {
       //cart review
       case 0:
-        return <CartReview onClose={handleClose} onCheckout={nextStage} code={code}/>;
+        return <CartReview onClose={handleClose} onCheckout={nextStage}/>;
 
       //payment form modal
       case 1:
@@ -80,7 +80,7 @@ const Cart = (props) => {
           <CheckoutFormModal
             onPayment={handleCreateReceipt}
             onClose={handleClose}
-            code={code}
+            discount={discount}
           />
         );
 

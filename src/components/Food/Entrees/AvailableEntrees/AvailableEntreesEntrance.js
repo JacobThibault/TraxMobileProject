@@ -1,6 +1,6 @@
 import React, { useState} from "react";
-import classes from "../../../Food/Styles/AvailableItems.module.css";
-import EntreesFormModal from "../EntreesModal/EntreesFormModal";
+import classes from "../../Food.module.css";
+import EntreesFormModal from "../EntreesFormModal";
 import {Button} from 'react-bootstrap';
 
 const AvailableEntreesEntrance = () => {

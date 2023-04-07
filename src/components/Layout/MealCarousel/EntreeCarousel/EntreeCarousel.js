@@ -6,7 +6,7 @@ import chickenquesadilla from "./chickenquesadilla.jpg";
 import chickenfingers from "./chickenfingers.jpeg";
 import chickensanwich from "./chickensanwich.jpg";
 import Card from "../../../UI/Card/Card";
-import classes from "../../../Food/Styles/AvailableItems.module.css";
+import classes from "../../../Food/Food.module.css";
 import AvailableEntreesEntrance from "../../../Food/Entrees/AvailableEntrees/AvailableEntreesEntrance";
 import AvailableEntrees from "../../../Food/Entrees/AvailableEntrees/AvailableEntrees";
 

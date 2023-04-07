@@ -1,7 +1,7 @@
 import { useState} from 'react';
 import React from "react";
-import classes from "../../../Food/Styles/AvailableItems.module.css";
-import CombosFormModal from "../CombosFormModal/CombosFormModal";
+import classes from "../../Food.module.css";
+import CombosFormModal from "../CombosFormModal";
 import {Button} from 'react-bootstrap';
 
 const AvailableCombosEntrance = (props) => {

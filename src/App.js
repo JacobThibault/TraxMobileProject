@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import Header from "./components/Layout/Header";
+import Header from "./components/Layout/Header/Header";
 import Cart from "./components/Cart/Cart";
 import CartProvider from "./Store/CartProvider";
 //import CartToast from "./components/Layout/CartToast";
@@ -23,27 +23,19 @@ function App() {
   };
 
   //handle coupon code
-  const [code, setCode] = useState("");
-  const handleSetCode = (value) => {
-    setCode(value.code);
-    console.log(code);
+  const [discount, setDiscount] = useState("");
+  const handleSetDiscount = (value) => {
+    setDiscount(value.discount);
   };
 
   return (
     <>
-      {/*toast appears for each item added to cart 
-      <ToastContainer position="top-start" className="m-3">
-        <CartToast message="Fries"/>
-        <CartToast message="Pizza"/>
-        <CartToast message="Cheese Burger"/>
-      </ToastContainer>
-      */}
 
       <CartProvider>
         {/*show cart if cartIsShown is true */}
-        {cartIsShown && <Cart onClose={hideCartHandler} code={code} />}
+        {cartIsShown && <Cart onClose={hideCartHandler} discount={discount} />}
         <div id={"home"} className={"anchor"} />
-        <Header onShowCart={showCartHandler} code={handleSetCode} />
+        <Header onShowCart={showCartHandler} discount={handleSetDiscount} />
         {/*meal carousel */}
         <div id={"entrees"} className={"anchor"} />
         <EntreeCarousel />

@@ -8,7 +8,7 @@ import chickensanwich from "./chickensanwich.jpg";
 import wings from './wings.jpg';
 
 import Card from "../../../UI/Card/Card";
-import classes from "../../../Food/Styles/AvailableItems.module.css";
+import classes from "../../../Food/Food.module.css";
 import AvailableCombos from "../../../Food/Combos/AvailableCombos/AvailableCombos";
 import AvailableCombosEntrance from "../../../Food/Combos/AvailableCombos/AvailableCombosEntrance";
 

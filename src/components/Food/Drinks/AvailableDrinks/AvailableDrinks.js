@@ -1,4 +1,4 @@
-import classes from "../../../Food/Styles/AvailableItems.module.css";
+import classes from "../../Food.module.css";
 import Card from "../../../UI/Card/Card";
 import DrinksItem from "../DrinksItem/DrinksItem";
 import {useEffect, useState} from 'react';

@@ -1,7 +1,7 @@
 import {useState} from 'react';
 import React from "react";
-import classes from "../../../Food/Styles/AvailableItems.module.css";
-import SidesFormModal from "../SidesModal/SidesFormModal";
+import classes from "../../Food.module.css";
+import SidesFormModal from "../SidesFormModal";
 import {Button} from 'react-bootstrap';
 
 const AvailableSidesEntrance = () => {

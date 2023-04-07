@@ -3,10 +3,10 @@ import {
 } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { useState } from "react";
-import classes from "../../Styles/MenuFormModal.module.css";
-import AvailableCombos from "../AvailableCombos/AvailableCombos";
+import classes from "../Food.module.css";
+import AvailableDrinks from "./AvailableDrinks/AvailableDrinks";
 
-const CombosFormModal = (props) => {
+const DrinksFormModal = (props) => {
     //module
     const [show, setShow] = useState(true);
 
@@ -24,10 +24,10 @@ const CombosFormModal = (props) => {
             keyboard={false}
         >
             <Modal.Header closeButton>
-                <Modal.Title>Combo Selection</Modal.Title>
+                <Modal.Title>Drink Selection</Modal.Title>
             </Modal.Header>
             <Modal.Body>
-                <AvailableCombos />
+                <AvailableDrinks />
             </Modal.Body>
             <Modal.Footer>
             </Modal.Footer>
@@ -35,4 +35,4 @@ const CombosFormModal = (props) => {
     );
 };
 
-export default CombosFormModal;
+export default DrinksFormModal;

@@ -2,9 +2,12 @@ import { useContext } from "react";
 import CartContext from "../../../Store/cart-context";
 import forms from "./CheckoutForm.module.css"
 
-const OrderSummary = () => {
+const OrderSummary = (props) => {
   //get total amount of the cart
   const cartCtx = useContext(CartContext);
+
+  //get the discount
+  const discount = props.discount;
 
   //sub total
   const subtotal = cartCtx.totalAmount;
@@ -33,7 +36,7 @@ const OrderSummary = () => {
 
       <div className={forms.salesTax}>
         <span>Discount</span>
-        <span>-$0.00</span>
+        <span>{discount}</span>
       </div>
       
       <div className={forms.total}>

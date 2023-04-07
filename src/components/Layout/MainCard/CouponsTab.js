@@ -12,7 +12,7 @@ import logo from "../Brockp_Gold_Eagles_logo.png";
 
 const CouponsTab = (props) => {
   //generate a random string code
-  const [code, setCode] = useState();
+  const [discount, setDiscount] = useState();
 
   const handleSetCode = () => {
     let result = "";
@@ -25,7 +25,7 @@ const CouponsTab = (props) => {
         Math.floor(Math.random() * characters.length)
       );
     }
-    return setCode(result);
+    return setDiscount(result);
   };
 
   //change color of button
@@ -79,8 +79,8 @@ const CouponsTab = (props) => {
   };
 
   //send code to cart
-  const codeToCart = () => {
-    props.code({ code });
+  const discountToCart = () => {
+    props.discount({ discount });
     setShow(!show);
     toggleShowToast();
   };
@@ -108,7 +108,7 @@ const CouponsTab = (props) => {
         <Form.Label>
           Coupon Code:
           <Form.Control
-            value={code}
+            value={discount}
             className="mt-2"
             onClick={toggleShowToast}
             readOnly
@@ -125,7 +125,7 @@ const CouponsTab = (props) => {
           </Toast.Header>
           <Toast.Body className="m-3 text-dark">
             <h5>Apply Coupon?</h5>
-            <Button variant="success" className="mt-1 mb-4" onClick={codeToCart}>
+            <Button variant="success" className="mt-1 mb-4" onClick={discountToCart}>
               Apply
             </Button>
           </Toast.Body>

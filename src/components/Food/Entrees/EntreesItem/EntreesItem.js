@@ -1,4 +1,4 @@
-import classes from '../../Styles/MenuItem.module.css'
+import classes from "../../Food.module.css";
 import {useContext} from "react";
 import EntreesItemForm from "./EntreesItemForm/EntreesItemForm";
 import CartContext from "../../../../Store/cart-context";
@@ -18,7 +18,7 @@ const EntreesItem = (props) =>{
 
 
     return (
-        <li className={classes.entree}>
+        <li className={classes.food}>
             <div>
                 <h3>{props.name} </h3>
                 <div className={classes.description}>{props.description}</div>

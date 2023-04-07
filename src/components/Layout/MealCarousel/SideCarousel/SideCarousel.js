@@ -8,7 +8,7 @@ import onionrings from './onionrings.jpg';
 import fries from './fries.webp';
 
 import Card from "../../../UI/Card/Card";
-import classes from "../../../Food/Styles/AvailableItems.module.css";
+import classes from "../../../Food/Food.module.css";
 import AvailableSides from "../../../Food/Sides/AvailableSides/AvailableSides";
 import AvailableSidesEntrance from "../../../Food/Sides/AvailableSides/AvailableSidesEntrance";
 

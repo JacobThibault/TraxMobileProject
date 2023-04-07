@@ -5,7 +5,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import soda from './soda.jpg';
 
 import Card from "../../../UI/Card/Card";
-import classes from "../../../Food/Styles/AvailableItems.module.css";
+import classes from "../../../Food/Food.module.css";
 import AvailableDrinks from '../../../Food/Drinks/AvailableDrinks/AvailableDrinks';
 import AvailableDrinksEntrance from '../../../Food/Drinks/AvailableDrinks/AvailableDrinksEntrance';
 

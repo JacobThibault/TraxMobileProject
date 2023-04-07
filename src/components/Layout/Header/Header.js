@@ -1,16 +1,15 @@
 import { useState, useEffect } from "react";
 import HeaderCartButton from "./HeaderCartButton";
-import mealsImage from "../../assets/meals.jpg";
-import classes from "./Header.module.css";
+import mealsImage from "../../../assets/meals.jpg";
 import { Container, Nav, Navbar, Stack } from "react-bootstrap";
-import HomeTab from "./MainCard/HomeTab";
-import AboutTab from "./MainCard/AboutTab";
-import CouponsTab from "./MainCard/CouponsTab";
-import FAQTab from "./MainCard/FAQTab";
-import styles from "./MainCard/MainCard.module.css";
-import logo from "./Brockp_Gold_Eagles_logo.png";
-import tab from "../Food/Styles/AvailableItems.module.css";
-import CardPagination from "./MainCard/CardPagination";
+import HomeTab from "../MainCard/HomeTab";
+import AboutTab from "../MainCard/AboutTab";
+import CouponsTab from "../MainCard/CouponsTab";
+import FAQTab from "../MainCard/FAQTab";
+import CardPagination from "../MainCard/CardPagination";
+import logo from "../Brockp_Gold_Eagles_logo.png";
+import classes from "./Header.module.css";
+import tab from './Tab.module.css';
 
 const Header = (props) => {
   //default card is home
@@ -27,7 +26,7 @@ const Header = (props) => {
       case "About":
         return <AboutTab />;
       case "Coupons":
-        return <CouponsTab code={sendCoupon} />;
+        return <CouponsTab discount={handleDiscount} />;
       case "FAQ":
         return <FAQTab />;
       default:
@@ -36,8 +35,8 @@ const Header = (props) => {
   };
 
   //send the coupon to cart
-  const sendCoupon = (code) => {
-    props.code(code);
+  const handleDiscount = (discount) => {
+    props.discount(discount);
   };
 
   useEffect(() => {
@@ -90,7 +89,7 @@ const Header = (props) => {
       </div>
 
       {/*show different main cards */}
-      <section className={styles.summary}>
+      <section className={tab.summary}>
         <h1 className={tab.title}>{nav}</h1>
         {showCard(nav)}
 

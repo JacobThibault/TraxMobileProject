@@ -1,7 +1,7 @@
-import CartIcon from "../Cart/CartIcon";
+import CartIcon from "../../Cart/CartIcon";
 import classes from "./HeaderCartButton.module.css";
 import { useContext, useEffect, useState } from "react";
-import CartContext from "../../Store/cart-context";
+import CartContext from "../../../Store/cart-context";
 import Badge from "react-bootstrap/Badge";
 
 const HeaderCartButton = (props) => {

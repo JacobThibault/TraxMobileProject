@@ -1,8 +1,8 @@
 import { Modal } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { useState } from "react";
-import classes from "../../Styles/MenuFormModal.module.css";
-import AvailableSides from "../AvailableSides/AvailableSides";
+import classes from "../Food.module.css";
+import AvailableSides from "./AvailableSides/AvailableSides";
 
 const SidesFormModal = (props) => {
   //module

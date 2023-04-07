@@ -1,9 +1,9 @@
-import classes from "../../../Food/Styles/AvailableItems.module.css";
+import classes from "../../Food.module.css";
 import Card from "../../../UI/Card/Card";
 import SidesItem from "../SidesItem/SidesItem";
 import {useEffect, useState} from 'react';
 
-const AvailableSides = (props) => {
+const AvailableSides = () => {
 
     const [retrievedSideList, setRetrievedSideList] = useState([]);
 

@@ -25,8 +25,8 @@ const CheckoutForm = (props) => {
     props.onClose();
   };
 
-  //handle coupon code
-  const code = props.code;
+  //handle discount
+  const discount = props.discount;
 
   //form email
   const [email, setEmail] = useState("@brockport.edu");
@@ -166,12 +166,12 @@ const CheckoutForm = (props) => {
 
           <Form.Group className="mb-3" controlId="CouponCode">
             <Form.Label>Coupon Code (optional)</Form.Label>
-            <Form.Control value={code} readOnly/>
+            <Form.Control value={discount} readOnly/>
             <Form.Text className="text-muted">*One coupon per order.</Form.Text>
           </Form.Group>
 
           {/*order $$ summary */}
-          <OrderSummary />
+          <OrderSummary discount={discount}/>
 
           {/*terms and conditions */}
           <Form.Group className="mb-3" id="TermsAndConditions">
