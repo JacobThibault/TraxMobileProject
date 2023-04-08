@@ -5,7 +5,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import pizza from "./CombosCarouselPictures/pizza.webp";
 import chickenfingers from "./CombosCarouselPictures/chickenfingers.jpeg";
 import chickensanwich from "./CombosCarouselPictures/chickensanwich.jpg";
-import wings from './CombosCarouselPictures/wings.jpg';
+import wings from "./CombosCarouselPictures/wings.jpg";
 
 import Card from "../../../UI/Card/Card";
 import classes from "../../../Food/Food.module.css";
@@ -25,28 +25,27 @@ const CombosCarousel = () => {
     setComboIsShown(!comboIsShown);
   };
 
-
   //carousel data
   const data = [
     {
       image: chickensanwich,
       description: "Chicken Sandwich Combo Meal",
-      key: "0"
+      key: "0",
     },
     {
       image: chickenfingers,
       description: "Five Hand Breaded Chicken Fingers Combo Meal",
-      key: "1"
+      key: "1",
     },
     {
       image: pizza,
       description: "Oven Cooked Pizza",
-      key: "2"
+      key: "2",
     },
     {
       image: wings,
       description: "Dozen Fried Hot Wings",
-      key: "3"
+      key: "3",
     },
   ];
 
@@ -54,11 +53,12 @@ const CombosCarousel = () => {
     <>
       <section className={classes.entrees}>
         <Card>
-        <h1 className={classes.title}>Combos</h1>
+          <h1 className={classes.title}>Combos</h1>
           <Carousel activeIndex={index} onSelect={handleSelect}>
             {data.map((slide, i) => {
               return (
-                <Carousel.Item>
+                <Carousel.Item key={slide.key}>
+                  {/*carousel image */}
                   <Image
                     className="d-block w-100"
                     src={slide.image}
@@ -68,10 +68,11 @@ const CombosCarousel = () => {
                     key={slide.key}
                   />
                   <Carousel.Caption>
-                    
-                  <AvailableCombosEntrance
+                    {/*button to open carousel */}
+                    <AvailableCombosEntrance
                       onShowEntree={handleCombosHandler}
                     />
+                    {/*description for carousel */}
                     <h5>{slide.description}</h5>
                   </Carousel.Caption>
                 </Carousel.Item>
@@ -83,7 +84,6 @@ const CombosCarousel = () => {
       {/*launch modal */}
       {comboIsShown && <AvailableCombos onClose={handleCombosHandler} />}
     </>
-   
   );
 };
 

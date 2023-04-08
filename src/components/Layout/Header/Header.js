@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import HeaderCartButton from "./HeaderCartButton";
 import mealsImage from "../../../assets/meals.jpg";
-import { Container, Nav, Navbar, Stack } from "react-bootstrap";
+import { Container, Nav, Navbar, Stack, } from "react-bootstrap";
 import HomeTab from "../MainCard/Tab/HomeTab";
 import AboutTab from "../MainCard/Tab/AboutTab";
 import CouponsTab from "../MainCard/Tab/CouponsTab";
@@ -9,7 +9,7 @@ import FAQTab from "../MainCard/Tab/FAQTab";
 import CardPagination from "../MainCard/CardPagination";
 import logo from "../Brockp_Gold_Eagles_logo.png";
 import classes from "./Header.module.css";
-import tab from './Tab.module.css';
+import tab from "./Tab.module.css";
 
 const Header = (props) => {
   //default card is home
@@ -54,9 +54,11 @@ const Header = (props) => {
         }}
       >
         <h1>
+          {/*eagle logo */}
           <img src={logo} height="50px" width="auto" alt="logo"></img>
           &nbsp; Trax Mobile
         </h1>
+        {/*cart button */}
         <HeaderCartButton onClick={props.onShowCart} />
       </header>
 
@@ -64,6 +66,7 @@ const Header = (props) => {
         <Navbar bg="dark" variant="dark">
           <Container>
             <Nav className="mx-auto">
+              {/*navigation links */}
               <Stack direction="horizontal" gap={5}>
                 <Nav.Link href="#entrees" className="text-light">
                   Entrees

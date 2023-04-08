@@ -28,7 +28,7 @@ const CheckoutForm = (props) => {
 
   //handle discount
   const discount = props.discount;
-  const discountString = "-" + (props.discount * 100) + "%";
+  const discountString = "-" + props.discount * 100 + "%";
 
   //form email
   const [email, setEmail] = useState("@brockport.edu");
@@ -74,158 +74,162 @@ const CheckoutForm = (props) => {
     props.onPayment(orderData);
     //send order total
     props.total(total);
-    //send email receipt
-    sendReceipt();
+
+    //send the receipt email
+    console.log("sending receipt");
+    const serviceID = "service_qkrwufa";
+    const templateID = "template_o44mm2g";
+    const publicKeyID = "mpR7R4vrGfTYTmbMg";
+    console.log(document.getElementById("Email").value);
+
+    emailjs.send(
+      "service_qkrwufa",
+      "template_o44mm2g",
+      {
+        to_name: document.getElementById("First").value,
+        message: "Order ID: " + orderData.orderId + "\n Total: " + total,
+        email: document.getElementById("Email").value,
+      },
+      publicKeyID
+    );
   };
 
   //get order total
   const [total, setTotal] = useState();
   const handleTotal = (value) => {
     setTotal(value);
-  }
+  };
 
+  return (
+    <>
+      <Modal show={show} onHide={handleClose} keyboard={false}>
+        <Modal.Header closeButton>
+          {/*title */}
+          <Modal.Title>Payment</Modal.Title>
+        </Modal.Header>
 
-  function sendReceipt () {
-    const serviceID = "service_qkrwufa";
-    const templateID = "template_o44mm2g";
-    const publicKeyID = "mpR7R4vrGfTYTmbMg";
-    console.log(document.getElementById("Email").value);
+        <Modal.Body>
+          <Form className={forms.form} onSubmit={handleSubmit}>
+            <div>
+              {/*name */}
+              <Row className="mb-3">
+                <Form.Group as={Col} controlId="First">
+                  <Form.Label>Student Name*</Form.Label>
+                  <Form.Control required autoFocus />
+                  <Form.Text className="text-muted">First</Form.Text>
+                </Form.Group>
 
-    let orderId = props.orderId
+                <Form.Group as={Col} className="mt-2" controlId="Last">
+                  <Form.Label> </Form.Label>
+                  <Form.Control required />
+                  <Form.Text className="text-muted">Last</Form.Text>
+                </Form.Group>
+              </Row>
 
-    emailjs.send("service_qkrwufa","template_o44mm2g",{
-      to_name: document.getElementById("First").value,
-      message: "Order ID: " + orderId + "\n Total: " + total,
-      email: document.getElementById("Email").value,
-    }, publicKeyID);
-  }
-  
-
-  return (<>
-    
-    <Modal
-      show={show}
-      onHide={handleClose}
-      keyboard={false}
-    >
-      <Modal.Header closeButton>
-        <Modal.Title>Payment</Modal.Title>
-      </Modal.Header>
-     
-      <Modal.Body>
-        <Form className={forms.form} onSubmit={handleSubmit}>
-          <div>
-            {/*name */}
-            <Row className="mb-3">
-              <Form.Group as={Col} controlId="First">
-                <Form.Label>Student Name*</Form.Label>
-                <Form.Control required autoFocus />
-                <Form.Text className="text-muted">First</Form.Text>
+              {/*banner id */}
+              <Form.Group className="mb-3" controlId="Banner ID">
+                <Form.Label>Banner ID*</Form.Label>
+                <Form.Control
+                  pattern="800+[0-9]{6}"
+                  value={bannerId}
+                  onChange={handleBannerChange}
+                  required
+                />
+                <Form.Text className="text-muted">
+                  Must be <strong>9 </strong>digits.{" "}
+                  <em>
+                    Currently entered: <strong>{bannerIdLength}</strong> digits.
+                  </em>
+                </Form.Text>
               </Form.Group>
 
-              <Form.Group as={Col} className="mt-2" controlId="Last">
-                <Form.Label> </Form.Label>
-                <Form.Control required />
-                <Form.Text className="text-muted">Last</Form.Text>
-              </Form.Group>
-            </Row>
-
-            {/*banner id */}
-            <Form.Group className="mb-3" controlId="Banner ID">
-              <Form.Label>Banner ID*</Form.Label>
-              <Form.Control
-                pattern="800+[0-9]{6}"
-                value={bannerId}
-                onChange={handleBannerChange}
-                required
-              />
-              <Form.Text className="text-muted">
-                Must be <strong>9 </strong>digits.{" "}
-                <em>
-                  Currently entered: <strong>{bannerIdLength}</strong> digits.
-                </em>
-              </Form.Text>
-            </Form.Group>
-
-            {/*email */}
-            <Form.Group className="mb-3" controlId="Email">
-              <Form.Label>Email*</Form.Label>
-              <Form.Control
-                type="email"
-                value={email}
-                onChange={handleEmailChange}
-                required
-              />
-            </Form.Group>
-
-            {/*payment method */}
-            <Form.Group className="mb-3" id="Payment">
-              <Form.Label>Payment</Form.Label>
-              <Form.Group className="ml-3">
-                {paidWithCard ? (
-                  <Form.Text className="text-muted">*Pay with card.</Form.Text>
-                ) : (
-                  <Form.Text className="text-muted">
-                    *Pay with points.
-                  </Form.Text>
-                )}
-                <Form.Check
-                  type="switch"
-                  default={paidWithCard}
-                  onChange={handlePaidWithCardChange}
+              {/*email */}
+              <Form.Group className="mb-3" controlId="Email">
+                <Form.Label>Email*</Form.Label>
+                <Form.Control
+                  type="email"
+                  value={email}
+                  onChange={handleEmailChange}
+                  required
                 />
               </Form.Group>
-            </Form.Group>
-          </div>
 
-          {/*show if paying with card */}
-          {paidWithCard && (
-            <div>
-              {/*form for card information */}
-              <CheckoutFormCardInformation />
-
-              {/*form for billing information */}
-              <CheckoutFormBillingAddress />
+              {/*payment method */}
+              <Form.Group className="mb-3" id="Payment">
+                <Form.Label>Payment</Form.Label>
+                <Form.Group className="ml-3">
+                  {/*show different text for different payment method */}
+                  {paidWithCard ? (
+                    <Form.Text className="text-muted">
+                      *Pay with card.
+                    </Form.Text>
+                  ) : (
+                    <Form.Text className="text-muted">
+                      *Pay with points.
+                    </Form.Text>
+                  )}
+                  <Form.Check
+                    type="switch"
+                    default={paidWithCard}
+                    onChange={handlePaidWithCardChange}
+                  />
+                </Form.Group>
+              </Form.Group>
             </div>
-          )}
 
-          {/*discount */}
-          <Form.Group className="mb-3" controlId="CouponCode">
-            <Form.Label>Discount</Form.Label>
-            <Form.Control value={discountString} readOnly/>
-          </Form.Group>
+            {/*show if paying with card */}
+            {paidWithCard && (
+              <div>
+                {/*form for card information */}
+                <CheckoutFormCardInformation />
 
-          {/*order $$ summary */}
-          <OrderSummary discount={discount} discountString={discountString} total={handleTotal}/>
+                {/*form for billing information */}
+                <CheckoutFormBillingAddress />
+              </div>
+            )}
 
-          {/*terms and conditions */}
-          <Form.Group className="mb-3" id="TermsAndConditions">
-            <Stack direction="horizontal" gap={2}>
-              <Form.Check type="checkbox" required />
-              <Form.Label className="mt-1">
-                I accept the <a href="https://basc1.org/">Terms and Conditions</a>
-              </Form.Label>
-            </Stack>
-          </Form.Group>
+            {/*discount */}
+            <Form.Group className="mb-3" controlId="CouponCode">
+              <Form.Label>Discount</Form.Label>
+              <Form.Control value={discountString} readOnly />
+            </Form.Group>
 
-          {/*submit form */}
-          <OverlayTrigger
-            placement="right"
-            overlay={<Tooltip>This action is final.</Tooltip>}
-          >
-            <Button variant="success" type="submit" className="mb-4">
-              Pay & Place Order
-            </Button>
-          </OverlayTrigger>
-        </Form>
-      </Modal.Body>
-      <Modal.Footer>
-        {/*close button */}
-        <Button variant="secondary" onClick={handleClose}>
-          Close
-        </Button>
-      </Modal.Footer>
-    </Modal>
+            {/*order summary */}
+            <OrderSummary
+              discount={discount}
+              discountString={discountString}
+              total={handleTotal}
+            />
+
+            {/*terms and conditions */}
+            <Form.Group className="mb-3" id="TermsAndConditions">
+              <Stack direction="horizontal" gap={2}>
+                <Form.Check type="checkbox" required />
+                <Form.Label className="mt-1">
+                  I accept the{" "}
+                  <a href="https://basc1.org/">Terms and Conditions</a>
+                </Form.Label>
+              </Stack>
+            </Form.Group>
+
+            {/*submit form */}
+            <OverlayTrigger
+              placement="right"
+              overlay={<Tooltip>This action is final.</Tooltip>}
+            >
+              <Button variant="success" type="submit" className="mb-4">
+                Pay & Place Order
+              </Button>
+            </OverlayTrigger>
+          </Form>
+        </Modal.Body>
+        <Modal.Footer>
+          {/*close button */}
+          <Button variant="secondary" onClick={handleClose}>
+            Close
+          </Button>
+        </Modal.Footer>
+      </Modal>
     </>
   );
 };

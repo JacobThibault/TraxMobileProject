@@ -9,8 +9,7 @@ const CartToast = (props) => {
   const toggleShowToast = () => setShowToast(!showToast);
 
   return (
-    <>
-      
+    <> 
         <Toast show={showToast} onClose={toggleShowToast}>
           <Toast.Header>
             <img src={logo} height="20px" width="auto" alt="logo"></img>

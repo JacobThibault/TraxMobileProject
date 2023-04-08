@@ -1,9 +1,4 @@
-import {
-  Button,
-  Modal,
-  Toast,
-  ToastContainer,
-} from "react-bootstrap";
+import { Button, Modal, Toast, ToastContainer } from "react-bootstrap";
 import { useState } from "react";
 import receipt from "./OrderReceipt.module.css";
 import logo from "../../Layout/Brockp_Gold_Eagles_logo.png";
@@ -80,15 +75,18 @@ const OrderReceiptModule = (props) => {
         {/*toast to actually close */}
         <ToastContainer position="middle-center">
           <Toast show={showToast} onClose={toggleShowToast}>
+            {/*header */}
             <Toast.Header>
               <img src={logo} height="20px" width="auto" alt="logo"></img>
               <strong className="me-auto">&nbsp;Trax Mobile</strong>
               <small className="text-muted">just now</small>
             </Toast.Header>
+            {/*body */}
             <Toast.Body className="m-3 text-dark">
               Did you save your <strong>Order ID?</strong> It is required upon
               pickup
               <br />
+              {/*finish button */}
               <Button variant="danger" className="mt-3" onClick={handleClose}>
                 Yes, Finish
               </Button>

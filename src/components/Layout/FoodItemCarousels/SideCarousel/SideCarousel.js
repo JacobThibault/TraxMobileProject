@@ -2,10 +2,10 @@ import { useState } from "react";
 import { Carousel, Image } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 
-import tatertots from './SidesCarouselPictures/tatertots.jpg';
-import curlyfries from './SidesCarouselPictures/curlyfries.webp';
-import onionrings from './SidesCarouselPictures/onionrings.jpg';
-import fries from './SidesCarouselPictures/fries.webp';
+import tatertots from "./SidesCarouselPictures/tatertots.jpg";
+import curlyfries from "./SidesCarouselPictures/curlyfries.webp";
+import onionrings from "./SidesCarouselPictures/onionrings.jpg";
+import fries from "./SidesCarouselPictures/fries.webp";
 
 import Card from "../../../UI/Card/Card";
 import classes from "../../../Food/Food.module.css";
@@ -25,28 +25,27 @@ const SideCarousel = () => {
     setSideIsShown(!sideIsShown);
   };
 
-
   //carousel data
   const data = [
     {
       image: fries,
       description: "Fries",
-      key: "0"
+      key: "0",
     },
     {
       image: onionrings,
       description: "Onion Rings",
-      key: "1"
+      key: "1",
     },
     {
       image: curlyfries,
       description: "Curly Fries",
-      key: "2"
+      key: "2",
     },
     {
       image: tatertots,
       description: "Tater Tots",
-      key: "3"
+      key: "3",
     },
   ];
 
@@ -54,11 +53,12 @@ const SideCarousel = () => {
     <>
       <section className={classes.entrees}>
         <Card>
-        <h1 className={classes.title}>Sides</h1>
+          <h1 className={classes.title}>Sides</h1>
           <Carousel activeIndex={index} onSelect={handleSelect}>
             {data.map((slide, i) => {
               return (
-                <Carousel.Item>
+                <Carousel.Item key={slide.key}>
+                  {/*carousel image */}
                   <Image
                     className="d-block w-100"
                     src={slide.image}
@@ -68,10 +68,9 @@ const SideCarousel = () => {
                     key={slide.key}
                   />
                   <Carousel.Caption>
-                    
-                    <AvailableSidesEntrance
-                      onShowEntree={handleSideHandler}
-                    />
+                    {/*button to open carousel */}
+                    <AvailableSidesEntrance onShowEntree={handleSideHandler} />
+                    {/*description for carousel */}
                     <h5>{slide.description}</h5>
                   </Carousel.Caption>
                 </Carousel.Item>
@@ -83,7 +82,6 @@ const SideCarousel = () => {
       {/*launch modal */}
       {sideIsShown && <AvailableSides onClose={handleSideHandler} />}
     </>
-   
   );
 };
 

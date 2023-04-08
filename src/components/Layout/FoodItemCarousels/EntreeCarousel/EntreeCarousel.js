@@ -28,22 +28,22 @@ const EntreeCarousel = () => {
     {
       image: chickensanwich,
       description: "Chicken Sandwich",
-      key: "0"
+      key: "0",
     },
     {
       image: burger,
       description: "Cheese Burger",
-      key: "1"
+      key: "1",
     },
     {
       image: chickenfingers,
       description: "Five Hand breaded Chicken Fingers",
-      key: "2"
+      key: "2",
     },
     {
       image: chickenquesadilla,
       description: "Chicken Quesadilla",
-      key: "3"
+      key: "3",
     },
   ];
 
@@ -55,7 +55,8 @@ const EntreeCarousel = () => {
           <Carousel activeIndex={index} onSelect={handleSelect}>
             {data.map((slide, i) => {
               return (
-                <Carousel.Item>
+                <Carousel.Item key={slide.key}>
+                  {/*carousel image */}
                   <Image
                     className="d-block w-100"
                     src={slide.image}
@@ -65,9 +66,11 @@ const EntreeCarousel = () => {
                     key={slide.key}
                   />
                   <Carousel.Caption>
+                    {/*button to open carousel */}
                     <AvailableEntreesEntrance
                       onShowEntree={handleEntreesHandler}
                     />
+                    {/*description for carousel */}
                     <h5>{slide.description}</h5>
                   </Carousel.Caption>
                 </Carousel.Item>

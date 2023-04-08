@@ -4,7 +4,6 @@ import forms from "./CheckoutForm.module.css";
 import { useState } from "react";
 
 const CheckoutFormBillingAddress = () => {
-  
   //default state for state code
   const [stateCode, setStateCode] = useState("NY");
   const handleStateCodeChange = (event) => {
@@ -25,22 +24,24 @@ const CheckoutFormBillingAddress = () => {
 
   return (
     <div>
+      {/*title */}
       <span className={forms.title}>Billing Address</span>
 
       <Row className="mb-3">
+        {/*first name */}
         <Form.Group as={Col} controlId="First">
           <Form.Label>Name*</Form.Label>
           <Form.Control required />
           <Form.Text className="text-muted">First</Form.Text>
         </Form.Group>
-
+        {/*last name */}
         <Form.Group as={Col} className="mt-2" controlId="Last">
           <Form.Label></Form.Label>
           <Form.Control required />
           <Form.Text className="text-muted">Last</Form.Text>
         </Form.Group>
       </Row>
-
+      {/*address */}
       <Form.Group controlId="Address">
         <Form.Label>Address*</Form.Label>
         <Form.Control required />
@@ -54,14 +55,14 @@ const CheckoutFormBillingAddress = () => {
           Apartment, suite, etc. (optional)
         </Form.Text>
       </Form.Group>
-
+      {/*city */}
       <Row>
         <Form.Group as={Col} controlId="City">
           <Form.Label></Form.Label>
           <Form.Control pattern="[a-zA-Z]+" required />
           <Form.Text className="text-muted">City</Form.Text>
         </Form.Group>
-
+        {/*state */}
         <Form.Group as={Col} controlId="State">
           <Form.Label></Form.Label>
           <Form.Control
@@ -75,13 +76,14 @@ const CheckoutFormBillingAddress = () => {
           </Form.Text>
         </Form.Group>
       </Row>
+      {/*zip */}
       <Row>
         <Form.Group as={Col} controlId="Zip">
           <Form.Label></Form.Label>
           <Form.Control pattern="[0-9]{5}" required />
           <Form.Text className="text-muted">Postal / Zip Code</Form.Text>
         </Form.Group>
-
+        {/*country */}
         <Form.Group as={Col} controlId="Country">
           <Form.Label></Form.Label>
           <Form.Control
@@ -92,7 +94,7 @@ const CheckoutFormBillingAddress = () => {
           <Form.Text className="text-muted">Country</Form.Text>
         </Form.Group>
       </Row>
-
+      {/*phone number */}
       <Form.Group className="mb-3 mt-3" controlId="Phone">
         <Form.Label>Phone*</Form.Label>
         <Form.Control

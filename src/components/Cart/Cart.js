@@ -106,8 +106,7 @@ const Cart = (props) => {
   };
 
   return (
-    <div>
-      
+    <div>    
       {/*flip through cart modals */}
       {renderSwitch(checkoutIndex)}
     </div>

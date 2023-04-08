@@ -2,12 +2,12 @@ import { useState } from "react";
 import { Carousel, Image } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 
-import soda from './DrinksCarouselPictures/soda.jpg';
+import soda from "./DrinksCarouselPictures/soda.jpg";
 
 import Card from "../../../UI/Card/Card";
 import classes from "../../../Food/Food.module.css";
-import AvailableDrinks from '../../../Food/Drinks/AvailableDrinks/AvailableDrinks';
-import AvailableDrinksEntrance from '../../../Food/Drinks/AvailableDrinks/AvailableDrinksEntrance';
+import AvailableDrinks from "../../../Food/Drinks/AvailableDrinks/AvailableDrinks";
+import AvailableDrinksEntrance from "../../../Food/Drinks/AvailableDrinks/AvailableDrinksEntrance";
 
 const DrinksCarousel = () => {
   //manage carousel windows
@@ -22,28 +22,27 @@ const DrinksCarousel = () => {
     setDrinkIsShown(!drinkIsShown);
   };
 
-
   //carousel data
   const data = [
     {
       image: soda,
       description: "Dr Pepper",
-      key: "0"
+      key: "0",
     },
     {
       image: soda,
       description: "Coke",
-      key: "1"
+      key: "1",
     },
     {
       image: soda,
       description: "Mountain Dew",
-      key: "2"
+      key: "2",
     },
     {
       image: soda,
       description: "Pepsi",
-      key: "3"
+      key: "3",
     },
   ];
 
@@ -51,11 +50,12 @@ const DrinksCarousel = () => {
     <>
       <section className={classes.entrees}>
         <Card>
-        <h1 className={classes.title}>Drinks</h1>
+          <h1 className={classes.title}>Drinks</h1>
           <Carousel activeIndex={index} onSelect={handleSelect}>
             {data.map((slide, i) => {
               return (
-                <Carousel.Item>
+                <Carousel.Item key={slide.key}>
+                  {/*carousel image */}
                   <Image
                     className="d-block w-100"
                     src={slide.image}
@@ -65,10 +65,11 @@ const DrinksCarousel = () => {
                     key={slide.key}
                   />
                   <Carousel.Caption>
-                    
+                    {/*button to open carousel */}
                     <AvailableDrinksEntrance
                       onShowEntree={handleDrinkHandler}
                     />
+                    {/*description for carousel */}
                     <h5>{slide.description}</h5>
                   </Carousel.Caption>
                 </Carousel.Item>
@@ -80,7 +81,6 @@ const DrinksCarousel = () => {
       {/*launch modal */}
       {drinkIsShown && <AvailableDrinks onClose={handleDrinkHandler} />}
     </>
-   
   );
 };
 

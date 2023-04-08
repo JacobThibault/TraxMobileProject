@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, Fragment } from "react";
 
 import Header from "./components/Layout/Header/Header";
 import Cart from "./components/Cart/Cart";
@@ -23,7 +23,7 @@ function App() {
   };
 
   //handle coupon code
-  const [discount, setDiscount] = useState();
+  const [discount, setDiscount] = useState(0);
   const handleSetDiscount = (value) => {
     setDiscount(value.discount);
   };

@@ -12,6 +12,7 @@ const CheckoutFormCardInformation = () => {
 
   return (
     <div>
+      {/*title */}
       <span className={forms.title}>Card Information</span>
 
       {/*card number */}
@@ -46,10 +47,7 @@ const CheckoutFormCardInformation = () => {
         {/*card security code */}
         <Form.Group as={Col} controlId="CardSecurityCode">
           <Form.Label>Security Code*</Form.Label>
-          <Form.Control
-            pattern="[0-9]{3}"
-            required
-          />
+          <Form.Control pattern="[0-9]{3}" required />
           <Form.Text className="text-muted">
             Must be <strong>3</strong> digits.
           </Form.Text>
