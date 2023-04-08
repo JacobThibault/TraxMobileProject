@@ -1,3 +1,11 @@
+# Install Bootstrap
+### `npm install react-bootstrap bootstrap`
+ignore vulnrabilities
+
+# Install Emailjs
+### `npm install @emailjs/browser --save`
+ignore vulntrabilities
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
@@ -68,11 +76,3 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-
-# install bootstrap
-### `npm install react-bootstrap bootstrap`
-ignore vulnrabilities
-
-# install Emailjs
-### `npm install @emailjs/browser --save`
-ignore vulntrabilities
