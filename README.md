@@ -1,11 +1,11 @@
 # Install Bootstrap
 ### `npm install react-bootstrap bootstrap`
-##ignore vulnrabilities
+## ignore vulnrabilities
 replace bootstrap/dist/css/bootstrap.min.css with the bootstrap.min.css file provided
 
 # Install Emailjs
 ### `npm install @emailjs/browser --save`
-##ignore vulntrabilities
+## ignore vulntrabilities
 
 # Getting Started with Create React App
 
