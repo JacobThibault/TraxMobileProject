@@ -83,6 +83,7 @@ const Cart = (props) => {
             onClose={handleClose}
             discount={discount}
             total={handleTotal}
+            orderId={orderId}
           />
         );
 

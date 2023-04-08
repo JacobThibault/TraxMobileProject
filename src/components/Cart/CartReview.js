@@ -2,7 +2,7 @@ import classes from "./Cart.module.css";
 import { Modal, Button } from "react-bootstrap";
 import { useContext, useState } from "react";
 import CartContext from "../../Store/cart-context";
-import CartItem from "./CartItem";
+import CartItem from "./CartItem/CartItem";
 import forms from "./CheckoutForm/CheckoutForm.module.css";
 
 const CartReview = (props) => {

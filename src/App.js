@@ -6,11 +6,11 @@ import CartProvider from "./Store/CartProvider";
 //import CartToast from "./components/Layout/CartToast";
 //import { ToastContainer } from "react-bootstrap";
 
-import EntreeCarousel from "./components/Layout/MealCarousel/EntreeCarousel/EntreeCarousel";
+import EntreeCarousel from "./components/Layout/FoodItemCarousels/EntreeCarousel/EntreeCarousel";
 import Footer from "./components/Layout/Footer";
-import SideCarousel from "./components/Layout/MealCarousel/SideCarousel/SideCarousel";
-import DrinksCarousel from "./components/Layout/MealCarousel/DrinksCarousel/DrinksCarousel";
-import CombosCarousel from "./components/Layout/MealCarousel/CombosCarousel/CombosCarousel";
+import SideCarousel from "./components/Layout/FoodItemCarousels/SideCarousel/SideCarousel";
+import DrinksCarousel from "./components/Layout/FoodItemCarousels/DrinksCarousel/DrinksCarousel";
+import CombosCarousel from "./components/Layout/FoodItemCarousels/CombosCarousel/CombosCarousel";
 
 function App() {
   //show cart

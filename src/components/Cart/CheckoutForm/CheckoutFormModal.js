@@ -91,9 +91,11 @@ const CheckoutForm = (props) => {
     const publicKeyID = "mpR7R4vrGfTYTmbMg";
     console.log(document.getElementById("Email").value);
 
+    let orderId = props.orderId
+
     emailjs.send("service_qkrwufa","template_o44mm2g",{
       to_name: document.getElementById("First").value,
-      message: "THIS IS THE MOCK RESPONSE FOR YOUR RECEIPT",
+      message: "Order ID: " + orderId + "\n Total: " + total,
       email: document.getElementById("Email").value,
     }, publicKeyID);
   }

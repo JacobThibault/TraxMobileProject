@@ -93,8 +93,16 @@ const CouponsTab = (props) => {
 
   //send code to cart
   const discountToCart = () => {
-    setShow(!show);
+    handleToolTip();
     props.discount({discount});
+  };
+
+  //hide tooltip after a second
+  const handleToolTip = () => {
+    setShow(true);
+    setTimeout(() => {
+      setShow(false);
+    }, 2000);
   };
 
   const [show, setShow] = useState(false);
