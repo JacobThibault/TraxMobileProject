@@ -26,6 +26,8 @@ const CheckoutForm = (props) => {
     props.onClose();
   };
 
+  const cartContents = props.cart;
+
   //handle discount
   const discount = props.discount;
   const discountString = "-" + props.discount * 100 + "%";
@@ -87,7 +89,14 @@ const CheckoutForm = (props) => {
       "template_o44mm2g",
       {
         to_name: document.getElementById("First").value,
-        message: "Order ID: " + orderData.orderId + "\n Total: " + total,
+        message:
+          "Order ID: \n" +
+          orderData.orderId +
+          "\n Order: \n " +
+          cartContents +
+          "\n Total:\n" +
+          total,
+
         email: document.getElementById("Email").value,
       },
       publicKeyID
@@ -107,7 +116,7 @@ const CheckoutForm = (props) => {
           {/*title */}
           <Modal.Title>Payment</Modal.Title>
         </Modal.Header>
-
+        {console.log(cartContents)}
         <Modal.Body>
           <Form className={forms.form} onSubmit={handleSubmit}>
             <div>

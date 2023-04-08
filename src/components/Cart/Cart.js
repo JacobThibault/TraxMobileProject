@@ -1,10 +1,10 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import CheckoutFormModal from "./CheckoutForm/CheckoutFormModal";
 import OrderReceiptModal from "./OrderReceipt/OrderReceiptModal";
 import CartReview from "./CartReview";
+import CartContext from "../../Store/cart-context";
 
 const Cart = (props) => {
-  
   //discount
   let discount = props.discount;
 
@@ -46,7 +46,21 @@ const Cart = (props) => {
   const [orderPaidWith, setOrderPaidWith] = useState();
   const handleOrderPaidWith = (event) => {
     setOrderPaidWith(event);
-  }; 
+  };
+
+  let cartCtx = useContext(CartContext);
+  //populate cartContents with name and amount of product
+  let cartContents = cartCtx.items.map((item) => ({
+    name: item.name,
+    amount: item.amount,
+  }));
+
+  //turn cartContents into a string
+  let cartContentsString = "";
+  for (let i = 0; i < cartContents.length; i++) {
+    let item = cartContents[i];
+    cartContentsString += "\t ${item.amount}x, ${item.name} \n";
+  }
 
   //----------------------------------------------
 
@@ -73,17 +87,18 @@ const Cart = (props) => {
     switch (checkoutIndex) {
       //cart review
       case 0:
-        return <CartReview onClose={handleClose} onCheckout={nextStage}/>;
+        return <CartReview onClose={handleClose} onCheckout={nextStage} />;
 
       //payment form modal
       case 1:
-        return (     
+        return (
           <CheckoutFormModal
             onPayment={handleCreateReceipt}
             onClose={handleClose}
             discount={discount}
             total={handleTotal}
             orderId={orderId}
+            cart={cartContentsString}
           />
         );
 
@@ -106,7 +121,7 @@ const Cart = (props) => {
   };
 
   return (
-    <div>    
+    <div>
       {/*flip through cart modals */}
       {renderSwitch(checkoutIndex)}
     </div>

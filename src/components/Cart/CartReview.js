@@ -6,7 +6,6 @@ import CartItem from "./CartItem/CartItem";
 import forms from "./CheckoutForm/CheckoutForm.module.css";
 
 const CartReview = (props) => {
-  
   //modal
   const [show, setShow] = useState(true);
 
@@ -62,7 +61,6 @@ const CartReview = (props) => {
         onHide={handleClose}
         keyboard={false}
         dialogClassName={forms.modalSize}
-        
       >
         <Modal.Header closeButton>
           <Modal.Title>Cart</Modal.Title>
