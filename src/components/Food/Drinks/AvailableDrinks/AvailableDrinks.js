@@ -20,6 +20,7 @@ const AvailableDrinks = (props) => {
                     name: responseData[key].name,
                     description: responseData[key].description,
                     price: responseData[key].price,
+                    key: key,
                 });
             }
             setRetrievedDrinkList(loadedDrinks);

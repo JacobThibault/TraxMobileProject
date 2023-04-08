@@ -27,6 +27,7 @@ const CheckoutForm = (props) => {
 
   //handle discount
   const discount = props.discount;
+  const discountString = "-" + (props.discount * 100) + "%";
 
   //form email
   const [email, setEmail] = useState("@brockport.edu");
@@ -70,7 +71,32 @@ const CheckoutForm = (props) => {
 
     //close and send order data to Cart.js
     props.onPayment(orderData);
+    //send order total
+    props.total(total);
+    //send email receipt
+   // sendReceipt();
   };
+
+  //get order total
+  const [total, setTotal] = useState();
+  const handleTotal = (value) => {
+    setTotal(value);
+  }
+  
+/* 
+  function sendReceipt () {
+    const serviceID = "service_qkrwufa";
+    const templateID = "template_o44mm2g";
+    const publicKeyID = "mpR7R4vrGfTYTmbMg";
+    console.log(document.getElementById("Email").value);
+
+    emailjs.send("service_qkrwufa","template_o44mm2g",{
+      to_name: document.getElementById("First").value,
+      message: "THIS IS THE MOCK RESPONSE FOR YOUR RECEIPT",
+      email: document.getElementById("Email").value,
+    }, publicKeyID);
+  }
+  */
 
   return (<>
     
@@ -78,7 +104,6 @@ const CheckoutForm = (props) => {
       show={show}
       onHide={handleClose}
       keyboard={false}
-      // dialogClassName={forms.myModal}
     >
       <Modal.Header closeButton>
         <Modal.Title>Payment</Modal.Title>
@@ -161,17 +186,14 @@ const CheckoutForm = (props) => {
             </div>
           )}
 
-          {/*coupon code */}
-          
-
+          {/*discount */}
           <Form.Group className="mb-3" controlId="CouponCode">
-            <Form.Label>Coupon Code (optional)</Form.Label>
-            <Form.Control value={discount} readOnly/>
-            <Form.Text className="text-muted">*One coupon per order.</Form.Text>
+            <Form.Label>Discount</Form.Label>
+            <Form.Control value={discountString} readOnly/>
           </Form.Group>
 
           {/*order $$ summary */}
-          <OrderSummary discount={discount}/>
+          <OrderSummary discount={discount} discountString={discountString} total={handleTotal}/>
 
           {/*terms and conditions */}
           <Form.Group className="mb-3" id="TermsAndConditions">

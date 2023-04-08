@@ -2,10 +2,10 @@ import { useState } from "react";
 import { Carousel, Image } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 
-import tatertots from './tatertots.jpg';
-import curlyfries from './curlyfries.webp';
-import onionrings from './onionrings.jpg';
-import fries from './fries.webp';
+import tatertots from './SidesCarouselPictures/tatertots.jpg';
+import curlyfries from './SidesCarouselPictures/curlyfries.webp';
+import onionrings from './SidesCarouselPictures/onionrings.jpg';
+import fries from './SidesCarouselPictures/fries.webp';
 
 import Card from "../../../UI/Card/Card";
 import classes from "../../../Food/Food.module.css";
@@ -31,18 +31,22 @@ const SideCarousel = () => {
     {
       image: fries,
       description: "Fries",
+      key: "0"
     },
     {
       image: onionrings,
       description: "Onion Rings",
+      key: "1"
     },
     {
       image: curlyfries,
       description: "Curly Fries",
+      key: "2"
     },
     {
       image: tatertots,
       description: "Tater Tots",
+      key: "3"
     },
   ];
 
@@ -61,6 +65,7 @@ const SideCarousel = () => {
                     alt={slide.caption}
                     fluid={true}
                     rounded={true}
+                    key={slide.key}
                   />
                   <Carousel.Caption>
                     

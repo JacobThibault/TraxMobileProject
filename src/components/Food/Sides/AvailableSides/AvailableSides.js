@@ -20,6 +20,7 @@ const AvailableSides = () => {
                     name: responseData[key].name,
                     description: responseData[key].description,
                     price: responseData[key].price,
+                    key: key,
                 });
             }
             setRetrievedSideList(loadedSides);

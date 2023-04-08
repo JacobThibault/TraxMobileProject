@@ -2,30 +2,50 @@ import {
   Button,
   Spinner,
   Form,
-  Toast,
-  ToastContainer,
   Container,
+  Overlay,
+  Tooltip,
 } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { useState } from "react";
-import logo from "../Brockp_Gold_Eagles_logo.png";
+import { useEffect, useState, useRef } from "react";
 
 const CouponsTab = (props) => {
   //generate a random string code
-  const [discount, setDiscount] = useState();
+  const [discount, setDiscount] = useState(0);
+  const [loadedCoupons, setLoadedCoupons] = useState([]);
 
-  const handleSetCode = () => {
-    let result = "";
-    const characters =
-      "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-    //generate string
-    for (let i = 0; i < 15; i++) {
-      //get random character from character list
-      result += characters.charAt(
-        Math.floor(Math.random() * characters.length)
+  useEffect(() => {
+    const fetchCoupons = async () => {
+      const response = await fetch(
+        "https://foodapp-a3f77-default-rtdb.firebaseio.com/Coupons.json"
       );
+      const responseData = await response.json();
+
+      const coupons = [];
+      for (const key in responseData) {
+        coupons.push({
+          id: key,
+          code: responseData[key].code,
+          discount_percentage: responseData[key].discount_percentage,
+        });
+      }
+      setLoadedCoupons(coupons);
+    };
+    fetchCoupons();
+  }, []);
+
+  const handleSetCoupon = () => {
+    let result = Math.floor(Math.random() * 101);
+    if (result <= 20) {
+      setDiscount(0);
+    } else if (result <= 70 && result >= 21) {
+      setDiscount(loadedCoupons.at(2).discount_percentage);
+    } else if (result <= 90 && result >= 71) {
+      setDiscount(loadedCoupons.at(1).discount_percentage);
+    } else if (result <= 100 && result >= 91) {
+      setDiscount(loadedCoupons.at(0).discount_percentage);
     }
-    return setDiscount(result);
+    return discount;
   };
 
   //change color of button
@@ -34,19 +54,12 @@ const CouponsTab = (props) => {
     return setCouponFlag(false);
   };
 
-  //toast variables
-  const [showToast, setShowToast] = useState(false);
-  const toggleShowToast = () => setShowToast(!showToast);
-
   //manage loading flag
   const [loading, setLoading] = useState(false);
   const handleLoading = () => {
     //only generate once
     if (couponFlag) {
       setLoading(!loading);
-    } else {
-      //show warning toast
-      toggleShowToast();
     }
   };
 
@@ -56,7 +69,7 @@ const CouponsTab = (props) => {
       //wait 5000ms and then stop loading, generate code
       setTimeout(() => {
         handleLoading();
-        handleSetCode();
+        handleSetCoupon();
         handleSetCouponFlag();
       }, 5000);
 
@@ -80,12 +93,12 @@ const CouponsTab = (props) => {
 
   //send code to cart
   const discountToCart = () => {
-    props.discount({ discount });
     setShow(!show);
-    toggleShowToast();
+    props.discount({discount});
   };
 
   const [show, setShow] = useState(false);
+  const target = useRef(null);
 
   return (
     <Container>
@@ -106,31 +119,26 @@ const CouponsTab = (props) => {
 
       <Form.Group>
         <Form.Label>
-          Coupon Code:
+          Discount Off:
           <Form.Control
-            value={discount}
+            value={100 * discount + "%"}
             className="mt-2"
-            onClick={toggleShowToast}
             readOnly
           />
+          {!couponFlag && (
+            <Button ref={target} variant="secondary" size="sm" placement="right" onClick={discountToCart}>
+              Apply Discount
+            </Button>
+          )}
+          <Overlay target={target.current} show={show} placement="right">
+            {(props) => (
+              <Tooltip id="overlay-example" {...props}>
+                Applied!
+              </Tooltip>
+            )}
+          </Overlay>
         </Form.Label>
       </Form.Group>
-
-      <ToastContainer position="middle-center">
-        <Toast show={showToast} onClose={toggleShowToast}>
-          <Toast.Header>
-            <img src={logo} height="20px" width="auto" alt="logo"></img>
-            <strong className="me-auto">&nbsp;Trax Mobile</strong>
-            <small className="text-muted">just now</small>
-          </Toast.Header>
-          <Toast.Body className="m-3 text-dark">
-            <h5>Apply Coupon?</h5>
-            <Button variant="success" className="mt-1 mb-4" onClick={discountToCart}>
-              Apply
-            </Button>
-          </Toast.Body>
-        </Toast>
-      </ToastContainer>
     </Container>
   );
 };

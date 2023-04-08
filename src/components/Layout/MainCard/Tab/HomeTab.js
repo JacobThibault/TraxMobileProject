@@ -1,4 +1,4 @@
-import logo from './brockportlogo.jpg'
+import logo from '../../../../assets/brockportlogo.jpg'
 
 const HomeTab = () => {
   return (

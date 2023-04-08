@@ -20,6 +20,7 @@ const AvailableCombos = () => {
                     name: responseData[key].name,
                     description: responseData[key].description,
                     price: responseData[key].price,
+                    key: key,
                 });
             }
             setRetrievedComboList(loadedCombos);

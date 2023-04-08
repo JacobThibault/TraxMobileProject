@@ -1,10 +1,10 @@
 import { useState } from "react";
 import { Carousel, Image } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
-import burger from "./burger.jpg";
-import chickenquesadilla from "./chickenquesadilla.jpg";
-import chickenfingers from "./chickenfingers.jpeg";
-import chickensanwich from "./chickensanwich.jpg";
+import burger from "./EntreesCarouselPictures/burger.jpg";
+import chickenquesadilla from "./EntreesCarouselPictures/chickenquesadilla.jpg";
+import chickenfingers from "./EntreesCarouselPictures/chickenfingers.jpeg";
+import chickensanwich from "./EntreesCarouselPictures/chickensanwich.jpg";
 import Card from "../../../UI/Card/Card";
 import classes from "../../../Food/Food.module.css";
 import AvailableEntreesEntrance from "../../../Food/Entrees/AvailableEntrees/AvailableEntreesEntrance";
@@ -28,18 +28,22 @@ const EntreeCarousel = () => {
     {
       image: chickensanwich,
       description: "Chicken Sandwich",
+      key: "0"
     },
     {
       image: burger,
       description: "Cheese Burger",
+      key: "1"
     },
     {
       image: chickenfingers,
       description: "Five Hand breaded Chicken Fingers",
+      key: "2"
     },
     {
       image: chickenquesadilla,
       description: "Chicken Quesadilla",
+      key: "3"
     },
   ];
 
@@ -58,6 +62,7 @@ const EntreeCarousel = () => {
                     alt={slide.caption}
                     fluid={true}
                     rounded={true}
+                    key={slide.key}
                   />
                   <Carousel.Caption>
                     <AvailableEntreesEntrance

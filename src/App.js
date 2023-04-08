@@ -23,7 +23,7 @@ function App() {
   };
 
   //handle coupon code
-  const [discount, setDiscount] = useState("");
+  const [discount, setDiscount] = useState();
   const handleSetDiscount = (value) => {
     setDiscount(value.discount);
   };

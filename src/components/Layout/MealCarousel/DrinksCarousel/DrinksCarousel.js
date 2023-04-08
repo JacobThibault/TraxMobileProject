@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Carousel, Image } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 
-import soda from './soda.jpg';
+import soda from './DrinksCarouselPictures/soda.jpg';
 
 import Card from "../../../UI/Card/Card";
 import classes from "../../../Food/Food.module.css";
@@ -28,18 +28,22 @@ const DrinksCarousel = () => {
     {
       image: soda,
       description: "Dr Pepper",
+      key: "0"
     },
     {
       image: soda,
       description: "Coke",
+      key: "1"
     },
     {
       image: soda,
       description: "Mountain Dew",
+      key: "2"
     },
     {
       image: soda,
       description: "Pepsi",
+      key: "3"
     },
   ];
 
@@ -58,6 +62,7 @@ const DrinksCarousel = () => {
                     alt={slide.caption}
                     fluid={true}
                     rounded={true}
+                    key={slide.key}
                   />
                   <Carousel.Caption>
                     

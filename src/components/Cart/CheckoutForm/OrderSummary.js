@@ -1,13 +1,10 @@
 import { useContext } from "react";
 import CartContext from "../../../Store/cart-context";
-import forms from "./CheckoutForm.module.css"
+import forms from "./CheckoutForm.module.css";
 
 const OrderSummary = (props) => {
   //get total amount of the cart
   const cartCtx = useContext(CartContext);
-
-  //get the discount
-  const discount = props.discount;
 
   //sub total
   const subtotal = cartCtx.totalAmount;
@@ -19,7 +16,19 @@ const OrderSummary = (props) => {
 
   //total amount
   const totalAmount = salesTax + subtotal;
-  const totalAmountString = `$${totalAmount.toFixed(2)}`;
+
+  //get the discount
+  const discountString = `-$${(totalAmount * (props.discount)).toFixed(2)}`;
+  const discount = totalAmount * (props.discount);
+  
+  //final total amount
+  const finalTotalAmount = totalAmount - discount;
+  const finalTotalAmountString = `$${finalTotalAmount.toFixed(2)}`;
+  
+  //send final total to checkout
+  const sendTotal = () => {
+    props.total(finalTotalAmountString);
+  }
 
   return (
     <div>
@@ -36,12 +45,13 @@ const OrderSummary = (props) => {
 
       <div className={forms.salesTax}>
         <span>Discount</span>
-        <span>{discount}</span>
+        <span>{discountString}</span>
       </div>
-      
+
       <div className={forms.total}>
         <span>Total</span>
-        <span>{totalAmountString}</span>
+        <span>{finalTotalAmountString}</span>
+        {sendTotal()}
       </div>
     </div>
   );

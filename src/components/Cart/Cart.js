@@ -1,5 +1,4 @@
-import { useContext, useState } from "react";
-import CartContext from "../../Store/cart-context";
+import { useState } from "react";
 import CheckoutFormModal from "./CheckoutForm/CheckoutFormModal";
 import OrderReceiptModal from "./OrderReceipt/OrderReceiptModal";
 import CartReview from "./CartReview";
@@ -8,7 +7,7 @@ const Cart = (props) => {
   
   //discount
   let discount = props.discount;
-  
+
   //close modal
   const handleClose = () => {
     //open and close in App.js
@@ -24,10 +23,12 @@ const Cart = (props) => {
   };
 
   //----------------------------------------------
-  //cart contents
-  let cartCtx = useContext(CartContext);
-  //get total amount from cart
-  const totalAmount = `$${cartCtx.totalAmount.toFixed(2)}`;
+  //get total amount from order summary
+  const [totalAmount, setTotalAmount] = useState();
+  const handleTotal = (value) => {
+    setTotalAmount(value);
+    console.log(value);
+  };
 
   //orderId to send to receipt
   const [orderId, setOrderId] = useState();
@@ -81,6 +82,7 @@ const Cart = (props) => {
             onPayment={handleCreateReceipt}
             onClose={handleClose}
             discount={discount}
+            total={handleTotal}
           />
         );
 

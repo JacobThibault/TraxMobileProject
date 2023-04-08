@@ -2,10 +2,10 @@ import { useState, useEffect } from "react";
 import HeaderCartButton from "./HeaderCartButton";
 import mealsImage from "../../../assets/meals.jpg";
 import { Container, Nav, Navbar, Stack } from "react-bootstrap";
-import HomeTab from "../MainCard/HomeTab";
-import AboutTab from "../MainCard/AboutTab";
-import CouponsTab from "../MainCard/CouponsTab";
-import FAQTab from "../MainCard/FAQTab";
+import HomeTab from "../MainCard/Tab/HomeTab";
+import AboutTab from "../MainCard/Tab/AboutTab";
+import CouponsTab from "../MainCard/Tab/CouponsTab";
+import FAQTab from "../MainCard/Tab/FAQTab";
 import CardPagination from "../MainCard/CardPagination";
 import logo from "../Brockp_Gold_Eagles_logo.png";
 import classes from "./Header.module.css";
@@ -35,8 +35,8 @@ const Header = (props) => {
   };
 
   //send the coupon to cart
-  const handleDiscount = (discount) => {
-    props.discount(discount);
+  const handleDiscount = (value) => {
+    props.discount(value);
   };
 
   useEffect(() => {
