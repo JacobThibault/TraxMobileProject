@@ -14,6 +14,7 @@ import CheckoutFormCardInformation from "./CheckoutFormCardInformation";
 import CheckoutFormBillingAddress from "./CheckoutFormBillingAddress";
 import forms from "./CheckoutForm.module.css";
 import OrderSummary from "./OrderSummary";
+import emailjs from "@emailjs/browser";
 
 const CheckoutForm = (props) => {
   //module
@@ -74,7 +75,7 @@ const CheckoutForm = (props) => {
     //send order total
     props.total(total);
     //send email receipt
-   // sendReceipt();
+    sendReceipt();
   };
 
   //get order total
@@ -82,8 +83,8 @@ const CheckoutForm = (props) => {
   const handleTotal = (value) => {
     setTotal(value);
   }
-  
-/* 
+
+
   function sendReceipt () {
     const serviceID = "service_qkrwufa";
     const templateID = "template_o44mm2g";
@@ -96,7 +97,7 @@ const CheckoutForm = (props) => {
       email: document.getElementById("Email").value,
     }, publicKeyID);
   }
-  */
+  
 
   return (<>
     
