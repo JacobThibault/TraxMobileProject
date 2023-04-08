@@ -70,9 +70,7 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
 
 # npm install react-bootstrap bootstrap
+ignore vulnrabilities
 
-## ignore vulnrabilities
-
-# $ npm install @emailjs/browser --save
-
-## ignore vulntrabilities
+# npm install @emailjs/browser --save
+ignore vulntrabilities
