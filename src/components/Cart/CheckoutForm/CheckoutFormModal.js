@@ -82,21 +82,18 @@ const CheckoutForm = (props) => {
     const serviceID = "service_qkrwufa";
     const templateID = "template_o44mm2g";
     const publicKeyID = "mpR7R4vrGfTYTmbMg";
-    console.log(document.getElementById("Email").value);
 
     emailjs.send(
-      "service_qkrwufa",
-      "template_o44mm2g",
+      serviceID,
+      templateID,
       {
         to_name: document.getElementById("First").value,
-        message:
-          "Order ID: \n" +
-          orderData.orderId +
-          "\n Order: \n " +
-          cartContents +
-          "\n Total:\n" +
-          total,
-
+        message: ("Order ID: \n" +
+            orderData.orderId +
+            "\n Order: \n " +
+            cartContents +
+            "\n Total:\n" +
+            total),
         email: document.getElementById("Email").value,
       },
       publicKeyID

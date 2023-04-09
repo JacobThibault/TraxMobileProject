@@ -49,6 +49,7 @@ const Cart = (props) => {
   };
 
   let cartCtx = useContext(CartContext);
+
   //populate cartContents with name and amount of product
   let cartContents = cartCtx.items.map((item) => ({
     name: item.name,
@@ -57,9 +58,9 @@ const Cart = (props) => {
 
   //turn cartContents into a string
   let cartContentsString = "";
-  for (let i = 0; i < cartContents.length; i++) {
+  for(let i = 0; i < cartContents.length; i++){
     let item = cartContents[i];
-    cartContentsString += "\t ${item.amount}x, ${item.name} \n";
+    cartContentsString += `\t ${item.amount}x, ${item.name} \n`;
   }
 
   //----------------------------------------------
