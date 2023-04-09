@@ -12,7 +12,7 @@ import AvailableDrinksEntrance from "../../../Food/Drinks/AvailableDrinks/Availa
 const DrinksCarousel = () => {
   //manage carousel windows
   const [index, setIndex] = useState(0);
-  const handleSelect = (selectedIndex, e) => {
+  const handleSelect = (selectedIndex) => {
     setIndex(selectedIndex);
   };
 
@@ -52,7 +52,7 @@ const DrinksCarousel = () => {
         <Card>
           <h1 className={classes.title}>Drinks</h1>
           <Carousel activeIndex={index} onSelect={handleSelect}>
-            {data.map((slide, i) => {
+            {data.map((slide) => {
               return (
                 <Carousel.Item key={slide.key}>
                   {/*carousel image */}
@@ -70,7 +70,7 @@ const DrinksCarousel = () => {
                       onShowEntree={handleDrinkHandler}
                     />
                     {/*description for carousel */}
-                    <h5>{slide.description}</h5>
+                    <h4 className={classes.foodDescription}>{slide.description}</h4>
                   </Carousel.Caption>
                 </Carousel.Item>
               );

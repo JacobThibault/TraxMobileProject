@@ -19,9 +19,7 @@ const AvailableEntreesEntrance = () => {
         <section className={classes.entrees}>
             {/*show cart if cartIsShown is true */}
             {entreesIsShown && <EntreesFormModal onClose={hideEntreesHandler} />}
-          
                 <span>
-                    <h1>Pick your entrees here!</h1>
                     <Button variant="success" onClick={showEntreesHandler}>Choose Entrees</Button>
                 </span>
             

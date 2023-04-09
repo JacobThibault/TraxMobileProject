@@ -15,7 +15,7 @@ import AvailableSidesEntrance from "../../../Food/Sides/AvailableSides/Available
 const SideCarousel = () => {
   //manage carousel windows
   const [index, setIndex] = useState(0);
-  const handleSelect = (selectedIndex, e) => {
+  const handleSelect = (selectedIndex) => {
     setIndex(selectedIndex);
   };
 
@@ -55,7 +55,7 @@ const SideCarousel = () => {
         <Card>
           <h1 className={classes.title}>Sides</h1>
           <Carousel activeIndex={index} onSelect={handleSelect}>
-            {data.map((slide, i) => {
+            {data.map((slide) => {
               return (
                 <Carousel.Item key={slide.key}>
                   {/*carousel image */}
@@ -71,7 +71,7 @@ const SideCarousel = () => {
                     {/*button to open carousel */}
                     <AvailableSidesEntrance onShowEntree={handleSideHandler} />
                     {/*description for carousel */}
-                    <h5>{slide.description}</h5>
+                    <h4 className={classes.foodDescription}>{slide.description}</h4>
                   </Carousel.Caption>
                 </Carousel.Item>
               );

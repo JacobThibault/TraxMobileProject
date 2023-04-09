@@ -15,7 +15,7 @@ import AvailableCombosEntrance from "../../../Food/Combos/AvailableCombos/Availa
 const CombosCarousel = () => {
   //manage carousel windows
   const [index, setIndex] = useState(0);
-  const handleSelect = (selectedIndex, e) => {
+  const handleSelect = (selectedIndex) => {
     setIndex(selectedIndex);
   };
 
@@ -55,7 +55,7 @@ const CombosCarousel = () => {
         <Card>
           <h1 className={classes.title}>Combos</h1>
           <Carousel activeIndex={index} onSelect={handleSelect}>
-            {data.map((slide, i) => {
+            {data.map((slide) => {
               return (
                 <Carousel.Item key={slide.key}>
                   {/*carousel image */}
@@ -73,7 +73,7 @@ const CombosCarousel = () => {
                       onShowEntree={handleCombosHandler}
                     />
                     {/*description for carousel */}
-                    <h5>{slide.description}</h5>
+                    <h4 className={classes.foodDescription}>{slide.description}</h4>
                   </Carousel.Caption>
                 </Carousel.Item>
               );

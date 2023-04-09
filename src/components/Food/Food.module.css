@@ -1,5 +1,5 @@
 .entrees {
-  max-width: 60rem;
+  max-width: 50rem;
   width: 90%;
   margin: 1rem auto;
   animation: appear 1s ease-out forwards;
@@ -57,6 +57,10 @@
     margin: 1rem;
     padding-bottom: 1rem;
     border-bottom: 1px solid #ccc;
+}
+.foodDescription {
+    color: white;
+    text-shadow: 0 0 4px black, 0 0 4px black, 0 0 4px black, 0 0 4px black, 0 0 4px black, 0 0 4px black, 0 0 4px black, 0 0 4px black, 0 0 4px black, 0 0 4px black, 0 0 4px black, 0 0 4px black, 0 0 4px black, 0 0 4px black, 0 0 4px black, 0 0 4px black;
 }
 
 .food h3 {

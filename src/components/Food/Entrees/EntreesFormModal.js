@@ -15,20 +15,28 @@ const EntreesFormModal = (props) => {
   };
 
   return (
-    <Modal
+      //Creates Modal piece by piece for Entrees Section
+      <Modal
       dialogClassName={classes.modalSize}
       show={show}
       onHide={handleClose}
       keyboard={false}
     >
-      <Modal.Header closeButton>
+        {/*Modal Header that takes in props closeButton*/}
+        <Modal.Header closeButton>
         <Modal.Title>Entree Selection</Modal.Title>
       </Modal.Header>
-      <Modal.Body>
-        <AvailableEntrees />
+
+        {/*Modal Body for Entrees section*/}
+        <Modal.Body>
+          {/*Calls AvailableEntrees component to display Entrees information*/}
+          <AvailableEntrees />
       </Modal.Body>
-      <Modal.Footer>
-        <Button variant="secondary" onClick={handleClose}>
+
+        {/*Modal Footer for Entrees section*/}
+        <Modal.Footer>
+          {/*Button that uses onClick event to close the modal*/}
+          <Button variant="secondary" onClick={handleClose}>
           Close
         </Button>
       </Modal.Footer>

@@ -16,7 +16,6 @@ const SidesItem = (props) =>{
         });
     };
 
-
     return (
         <li className={classes.food} key={props.name}>
             <div>

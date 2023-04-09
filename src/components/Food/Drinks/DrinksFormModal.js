@@ -15,20 +15,28 @@ const DrinksFormModal = (props) => {
   };
 
   return (
-    <Modal
+      //Creates Modal piece by piece for Drinks Section
+      <Modal
       dialogClassName={classes.modalSize}
       show={show}
       onHide={handleClose}
       keyboard={false}
     >
-      <Modal.Header closeButton>
-        <Modal.Title>Drink Selection</Modal.Title>
+        {/*Modal Header that takes in props closeButton*/}
+        <Modal.Header closeButton>
+          {/*Modal Title for Drink section*/}
+          <Modal.Title>Drink Selection</Modal.Title>
       </Modal.Header>
-      <Modal.Body>
-        <AvailableDrinks />
+
+        {/*Modal Body for Drinks section*/}
+        <Modal.Body>
+          {/*Calls AvailableDrinks component to display Combos information*/}
+          <AvailableDrinks />
       </Modal.Body>
-      <Modal.Footer>
-        <Button variant="secondary" onClick={handleClose}>
+        {/*Modal Footer for Drinks section*/}
+        <Modal.Footer>
+          {/*Button that uses onClick event to close the modal*/}
+          <Button variant="secondary" onClick={handleClose}>
           Close
         </Button>
       </Modal.Footer>

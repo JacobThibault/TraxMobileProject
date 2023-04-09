@@ -18,9 +18,7 @@ const AvailableSidesEntrance = () => {
         <section className={classes.menu}>
             {/*show cart if cartIsShown is true */}
             {sidesIsShown && <SidesFormModal onClose={hideSidesHandler} />}
-            
                 <span>
-                    <h1>Pick your sides here!</h1>
                     <Button variant="success" className="mb-3" onClick={showSidesHandler}>Choose Sides</Button>
                 </span>
             

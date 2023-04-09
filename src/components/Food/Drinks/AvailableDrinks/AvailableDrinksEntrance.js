@@ -18,9 +18,7 @@ const AvailableDrinksEntrance = () => {
         <section className={classes.menu}>
             {/*show cart if cartIsShown is true */}
             {drinksIsShown && <DrinksFormModal onClose={hideDrinksHandler} />}
-           
                 <span>
-                    <h1>Pick your drinks here!</h1>
                     <Button variant="success" className="mb-3" onClick={showDrinksHandler}>Choose Drinks</Button>
                 </span>
            

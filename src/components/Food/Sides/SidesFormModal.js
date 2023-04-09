@@ -15,19 +15,26 @@ const SidesFormModal = (props) => {
   };
 
   return (
-    <Modal
+      //Creates Modal piece by piece for Sides Section
+      <Modal
       dialogClassName={classes.modalSize}
       show={show}
       onHide={handleClose}
       keyboard={false}
     >
+        {/*Modal Header that takes in props closeButton*/}
       <Modal.Header closeButton>
+        {/*Modal Title for Side section*/}
         <Modal.Title>Sides Selection</Modal.Title>
       </Modal.Header>
-      <Modal.Body>
-        <AvailableSides />
+
+        {/*Modal Body for Sides section*/}
+        <Modal.Body>
+          {/*Calls AvailableSides component to display Sides information*/}
+          <AvailableSides />
       </Modal.Body>
       <Modal.Footer>
+        {/*Button that uses onClick event to close the modal*/}
         <Button variant="secondary" onClick={handleClose}>
           Close
         </Button>
