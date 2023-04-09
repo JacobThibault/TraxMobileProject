@@ -38,26 +38,26 @@ const OrderReceiptModule = (props) => {
           <div className={receipt.receipt}>
             <span>Order ID: </span>
             <span>
-              <mark>{props.orderId}</mark>
+              <mark>{props.receiptData.orderId}</mark>
             </span>
           </div>
 
           {/*email */}
           <div className={receipt.receipt}>
             <span>Email: </span>
-            <span>{props.email}</span>
+            <span>{props.receiptData.email}</span>
           </div>
 
           {/*paid with */}
           <div className={receipt.receipt}>
             <span>Paymeny Method: </span>
-            <span>{props.paidWith}</span>
+            <span>{props.receiptData.paidWith}</span>
           </div>
 
           {/*total */}
           <div className={receipt.receipt}>
             <span>Total: </span>
-            <span>{props.total}</span>
+            <span>{props.receiptData.total}</span>
           </div>
 
           {/*note */}
