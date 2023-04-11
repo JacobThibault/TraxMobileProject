@@ -10,19 +10,19 @@ const OrderSummary = (props) => {
   const subtotal = cartCtx.totalAmount;
   const subtotalString = `$${subtotal.toFixed(2)}`;
 
-  //sales tax
-  const salesTax = cartCtx.totalAmount * 0.08;
-  const salesTaxString = `$${(cartCtx.totalAmount * 0.08).toFixed(2)}`;
+  //get the discount
+  const discountString = `-$${(subtotal * props.discount).toFixed(2)}`;
+  const discount = subtotal * props.discount;
 
   //total amount
-  const totalAmount = salesTax + subtotal;
+  const totalAmount = subtotal - discount;
 
-  //get the discount
-  const discountString = `-$${(totalAmount * props.discount).toFixed(2)}`;
-  const discount = totalAmount * props.discount;
+  //sales tax
+  const salesTax = totalAmount * 0.08;
+  const salesTaxString = `$${(salesTax * 0.08).toFixed(2)}`;
 
   //final total amount
-  const finalTotalAmount = totalAmount - discount;
+  const finalTotalAmount = totalAmount + salesTax;
   const finalTotalAmountString = `$${finalTotalAmount.toFixed(2)}`;
 
   //send final total to checkout
@@ -34,25 +34,25 @@ const OrderSummary = (props) => {
     <div>
       {/*title */}
       <span className={forms.title}>Order Summary</span>
-     
+
       {/*subtotal */}
       <div className={forms.subtotal}>
         <span>Subtotal</span>
         <span>{subtotalString}</span>
       </div>
-      
-      {/*sales tax */}
-      <div className={forms.salesTax}>
-        <span>Sales tax</span>
-        <span>{salesTaxString}</span>
-      </div>
-      
+
       {/*discount % */}
       <div className={forms.salesTax}>
         <span>Discount</span>
         <span>{discountString}</span>
       </div>
-     
+
+      {/*sales tax */}
+      <div className={forms.salesTax}>
+        <span>Sales tax</span>
+        <span>{salesTaxString}</span>
+      </div>
+
       {/*total */}
       <div className={forms.total}>
         <span>Total</span>
