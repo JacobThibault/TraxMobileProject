@@ -22,34 +22,7 @@ const Cart = (props) => {
     window.location.reload(false);
   };
 
-  //----------------------------------------------
-  //get total amount from order summary
-  const [totalAmount, setTotalAmount] = useState();
-  const handleTotal = (value) => {
-    setTotalAmount(value);
-    console.log(value);
-  };
-
-  //orderId to send to receipt
-  const [orderId, setOrderId] = useState();
-  const handleOrderId = (event) => {
-    setOrderId(event);
-  };
-
-  //orderEmail to send to receipt
-  const [orderEmail, setOrderEmail] = useState();
-  const handleOrderEmail = (event) => {
-    setOrderEmail(event);
-  };
-
-  //orderPaidWith to send to receipt
-  const [orderPaidWith, setOrderPaidWith] = useState();
-  const handleOrderPaidWith = (event) => {
-    setOrderPaidWith(event);
-  };
-
   let cartCtx = useContext(CartContext);
-
   //populate cartContents with name and amount of product
   let cartContents = cartCtx.items.map((item) => ({
     name: item.name,
@@ -58,9 +31,9 @@ const Cart = (props) => {
 
   //turn cartContents into a string
   let cartContentsString = "";
-  for(let i = 0; i < cartContents.length; i++){
+  for (let i = 0; i < cartContents.length; i++) {
     let item = cartContents[i];
-    cartContentsString += `\t ${item.amount}x, ${item.name} \n`;
+    cartContentsString += `\t ${item.amount}x ${item.name} \n`;
   }
 
   //----------------------------------------------
@@ -70,16 +43,23 @@ const Cart = (props) => {
     setCheckoutIndex(checkoutIndex + 1);
   };
 
-  //when checkout is submitted
-  const handleCreateReceipt = (data) => {
-    //send order id
-    handleOrderId(data.orderId);
-    //send email
-    handleOrderEmail(data.email);
-    //send payment method
-    handleOrderPaidWith(data.paidWith);
+  //receipt data
+  const [receiptData, setReceiptData] = useState ({
+    orderId: null,
+    email: null,
+    paidWith: null,
+    total: null
+  });
 
-    //progress to next section
+  //when checkout is submitted, get receipt data
+  const handleCreateReceipt = (data) => {
+    setReceiptData({
+      orderId: data.orderId,
+      email: data.email,
+      paidWith: data.paidWith,
+      total: data.total
+    });
+    //progress to next stage
     nextStage();
   };
 
@@ -97,8 +77,6 @@ const Cart = (props) => {
             onPayment={handleCreateReceipt}
             onClose={handleClose}
             discount={discount}
-            total={handleTotal}
-            orderId={orderId}
             cart={cartContentsString}
           />
         );
@@ -107,10 +85,7 @@ const Cart = (props) => {
       case 2:
         return (
           <OrderReceiptModal
-            orderId={orderId}
-            email={orderEmail}
-            total={totalAmount}
-            paidWith={orderPaidWith}
+            receiptData={receiptData}
             refresh={refreshPage}
           />
         );

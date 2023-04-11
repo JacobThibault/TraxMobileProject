@@ -26,11 +26,18 @@ const CheckoutForm = (props) => {
     props.onClose();
   };
 
+  //get the cart contents string
   const cartContents = props.cart;
 
   //handle discount
   const discount = props.discount;
   const discountString = "-" + props.discount * 100 + "%";
+
+  //get order total
+  const [total, setTotal] = useState();
+  const handleTotal = (value) => {
+    setTotal(value);
+  };
 
   //form email
   const [email, setEmail] = useState("@brockport.edu");
@@ -70,15 +77,12 @@ const CheckoutForm = (props) => {
       orderId: orderId,
       email: email,
       paidWith: printPaymentType(paidWithCard),
+      total: total
     };
 
     //close and send order data to Cart.js
     props.onPayment(orderData);
-    //send order total
-    props.total(total);
 
-    //send the receipt email
-    console.log("sending receipt");
     const serviceID = "service_qkrwufa";
     const templateID = "template_o44mm2g";
     const publicKeyID = "mpR7R4vrGfTYTmbMg";
@@ -88,22 +92,21 @@ const CheckoutForm = (props) => {
       templateID,
       {
         to_name: document.getElementById("First").value,
-        message: ("Order ID: \n" +
-            orderData.orderId +
-            "\n Order: \n " +
-            cartContents +
-            "\n Total:\n" +
-            total),
+        message:
+          "Order ID:" +
+          "\n" +
+          orderData.orderId +
+          "\n \n Order:" +
+          "\n" +
+          cartContents +
+          "\n Total:" +
+          "\n" +
+          total,
+
         email: document.getElementById("Email").value,
       },
       publicKeyID
     );
-  };
-
-  //get order total
-  const [total, setTotal] = useState();
-  const handleTotal = (value) => {
-    setTotal(value);
   };
 
   return (
@@ -113,7 +116,6 @@ const CheckoutForm = (props) => {
           {/*title */}
           <Modal.Title>Payment</Modal.Title>
         </Modal.Header>
-        {console.log(cartContents)}
         <Modal.Body>
           <Form className={forms.form} onSubmit={handleSubmit}>
             <div>
@@ -142,7 +144,7 @@ const CheckoutForm = (props) => {
                   required
                 />
                 <Form.Text className="text-muted">
-                  Must be <strong>9 </strong>digits.{" "}
+                  Must be <strong>9 </strong>digits.
                   <em>
                     Currently entered: <strong>{bannerIdLength}</strong> digits.
                   </em>
