@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import HeaderCartButton from "./HeaderCartButton";
-import mealsImage from "../../../assets/meals.jpg";
+import background from "../../../assets/trax.jpg";
 import { Container, Nav, Navbar, Stack, } from "react-bootstrap";
 import HomeTab from "../MainCard/Tab/HomeTab";
 import AboutTab from "../MainCard/Tab/AboutTab";
@@ -88,7 +88,7 @@ const Header = (props) => {
 
       {/*background image */}
       <div className={classes["main-image"]}>
-        <img src={mealsImage} alt="Food served at Brockport" />
+        <img src={background} alt="Trax Brockport" />
       </div>
 
       {/*show different main cards */}
