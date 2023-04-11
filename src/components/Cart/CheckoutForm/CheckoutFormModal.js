@@ -144,7 +144,7 @@ const CheckoutForm = (props) => {
                   required
                 />
                 <Form.Text className="text-muted">
-                  Must be <strong>9 </strong>digits.{" "}
+                  Must be <strong>9 </strong>digits.
                   <em>
                     Currently entered: <strong>{bannerIdLength}</strong> digits.
                   </em>
