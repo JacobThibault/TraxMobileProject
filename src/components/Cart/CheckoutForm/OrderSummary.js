@@ -19,7 +19,7 @@ const OrderSummary = (props) => {
 
   //sales tax
   const salesTax = totalAmount * 0.08;
-  const salesTaxString = `$${(salesTax * 0.08).toFixed(2)}`;
+  const salesTaxString = `$${(salesTax).toFixed(2)}`;
 
   //final total amount
   const finalTotalAmount = totalAmount + salesTax;
